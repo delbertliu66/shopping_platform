@@ -1,0 +1,111 @@
+29/May/2023 17:04:52 [Thread-2 (process_request_thread):22996] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: 错误:  关系 "customers" 不存在
+LINE 1: ...stomers"."phone", "customers"."new_password" FROM "customers...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 723, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 679, in get_context
+    'content': self.get_content(renderer, data, accepted_media_type, renderer_context),
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 412, in get_content
+    content = renderer.render(data, accepted_media_type, renderer_context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 99, in render
+    ret = json.dumps(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "E:\software\Python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "E:\software\Python\lib\json\encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "E:\software\Python\lib\json\encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "E:\software\Python\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "E:\software\Python\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "E:\software\Python\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\utils\encoders.py", line 47, in default
+    return tuple(obj)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: 错误:  关系 "customers" 不存在
+LINE 1: ...stomers"."phone", "customers"."new_password" FROM "customers...
+                                                             ^
+
+29/May/2023 17:08:33 [Thread-6 (process_request_thread):24532] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 723, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 679, in get_context
+    'content': self.get_content(renderer, data, accepted_media_type, renderer_context),
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 412, in get_content
+    content = renderer.render(data, accepted_media_type, renderer_context)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\renderers.py", line 99, in render
+    ret = json.dumps(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "E:\software\Python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "E:\software\Python\lib\json\encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "E:\software\Python\lib\json\encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "E:\software\Python\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "E:\software\Python\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "E:\software\Python\lib\json\encoder.py", line 439, in _iterencode
+    yield from _iterencode(o, _current_indent_level)
+  File "E:\software\Python\lib\json\encoder.py", line 429, in _iterencode
+    yield from _iterencode_list(o, _current_indent_level)
+  File "E:\software\Python\lib\json\encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "E:\software\Python\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+  File "E:\software\Python\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Customers is not JSON serializable

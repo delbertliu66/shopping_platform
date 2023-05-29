@@ -1,4 +1,183 @@
-[96m2023-05-29 10:38:41 [MainThread:13116] [django.db.backends:131]             [DEBUG]- (0.000) 
+[96m2023-05-29 17:20:02 [Thread-3 (process_request_thread):19296] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password" FROM "customers"; args=(); alias=default[0m
+[35m2023-05-29 17:20:02 [Thread-3 (process_request_thread):19296] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/ HTTP/1.1" 200 6601[0m
+[35m2023-05-29 17:20:02 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-1 (process_request_thread):10296] [django.server:212]             [INFO]- "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-3 (process_request_thread):19296] [django.server:212]             [INFO]- "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-5 (process_request_thread):15264] [django.server:212]             [INFO]- "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-1 (process_request_thread):10296] [django.server:212]             [INFO]- "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-5 (process_request_thread):15264] [django.server:212]             [INFO]- "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-3 (process_request_thread):19296] [django.server:212]             [INFO]- "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-2 (process_request_thread):16196] [django.server:212]             [INFO]- "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:20:02 [Thread-6 (process_request_thread):24536] [django.server:212]             [INFO]- "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0[0m
+[96m2023-05-29 17:20:27 [Thread-6 (process_request_thread):24536] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>]], 'path': ''}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+[96m2023-05-29 17:20:27 [Thread-6 (process_request_thread):24536] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>]], 'path': ''}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>
+[33m2023-05-29 17:20:27 [Thread-6 (process_request_thread):24536] [django.server:212]             [WARNING]- "GET / HTTP/1.1" 404 2182[0m
+[96m2023-05-29 17:20:31 [Thread-6 (process_request_thread):24536] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>]], 'path': 'admin'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+[96m2023-05-29 17:20:31 [Thread-6 (process_request_thread):24536] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>]], 'path': 'admin'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>
+[35m2023-05-29 17:20:31 [Thread-6 (process_request_thread):24536] [django.server:212]             [INFO]- "GET /admin HTTP/1.1" 301 0[0m
+[35m2023-05-29 17:20:31 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /admin/ HTTP/1.1" 302 0[0m
+[35m2023-05-29 17:20:31 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4181[0m
+[35m2023-05-29 17:20:31 [Thread-5 (process_request_thread):15264] [django.server:212]             [INFO]- "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694[0m
+[35m2023-05-29 17:20:31 [Thread-3 (process_request_thread):19296] [django.server:212]             [INFO]- "GET /static/admin/css/login.css HTTP/1.1" 200 958[0m
+[35m2023-05-29 17:20:31 [Thread-2 (process_request_thread):16196] [django.server:212]             [INFO]- "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929[0m
+[35m2023-05-29 17:20:31 [Thread-5 (process_request_thread):15264] [django.server:212]             [INFO]- "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063[0m
+[35m2023-05-29 17:20:31 [Thread-1 (process_request_thread):10296] [django.server:212]             [INFO]- "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533[0m
+[35m2023-05-29 17:20:31 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 21207[0m
+[35m2023-05-29 17:20:31 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /static/admin/js/theme.js HTTP/1.1" 200 1943[0m
+[96m2023-05-29 17:21:42 [MainThread:11860] [django.db.backends:131]             [DEBUG]- (0.000) 
             SELECT
                 c.relname,
                 CASE
@@ -13,6 +192,119 @@
                 AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
                 AND pg_catalog.pg_table_is_visible(c.oid)
         ; args=None; alias=default[0m
-[96m2023-05-29 10:38:41 [MainThread:13116] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
-[35m2023-05-29 10:38:54 [Thread-1 (process_request_thread):19796] [django.server:212]             [INFO]- "GET / HTTP/1.1" 200 10731[0m
-[33m2023-05-29 10:38:54 [Thread-1 (process_request_thread):19796] [django.server:212]             [WARNING]- "GET /static/admin/css/fonts.css HTTP/1.1" 404 1816[0m
+[96m2023-05-29 17:21:42 [MainThread:11860] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-05-29 17:21:42 [MainThread:11860] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'administrator' LIMIT 21; args=('administrator',); alias=default[0m
+[96m2023-05-29 17:21:45 [MainThread:11860] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default[0m
+[96m2023-05-29 17:22:00 [MainThread:11860] [django.db.backends:131]             [DEBUG]- (0.000) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('pbkdf2_sha256$600000$PhnO2kp7UanemtoHavW6o6$ecQCLO/B9bu6BicOEaEH7DvUpCad3I1e+YeSrZzdd2g=', NULL, true, 'admin', '', '', '', true, true, '2023-05-29T09:21:59.929311+00:00'::timestamptz) RETURNING "auth_user"."id"; args=('pbkdf2_sha256$600000$PhnO2kp7UanemtoHavW6o6$ecQCLO/B9bu6BicOEaEH7DvUpCad3I1e+YeSrZzdd2g=', None, True, 'admin', '', '', '', True, True, datetime.datetime(2023, 5, 29, 9, 21, 59, 929311, tzinfo=datetime.timezone.utc)); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT 1 AS "a" FROM "django_session" WHERE "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk' LIMIT 1; args=(1, '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:161]             [DEBUG]- (0.000) BEGIN; args=None; alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('5ltejdm31fedmtc9lgtd2tdq7lqoxeqk', 'e30:1q3Z4t:CfYQNV7AjhEq6UaC3o_Ht7q5m81_SeusEVoXlWQHrH4', '2023-06-12T09:22:11.441039+00:00'::timestamptz); args=('5ltejdm31fedmtc9lgtd2tdq7lqoxeqk', 'e30:1q3Z4t:CfYQNV7AjhEq6UaC3o_Ht7q5m81_SeusEVoXlWQHrH4', datetime.datetime(2023, 6, 12, 9, 22, 11, 441039, tzinfo=datetime.timezone.utc)); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:161]             [DEBUG]- (0.000) COMMIT; args=None; alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) UPDATE "auth_user" SET "last_login" = '2023-05-29T09:22:11.443033+00:00'::timestamptz WHERE "auth_user"."id" = 1; args=(datetime.datetime(2023, 5, 29, 9, 22, 11, 443033, tzinfo=datetime.timezone.utc), 1); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:161]             [DEBUG]- (0.000) BEGIN; args=None; alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) UPDATE "django_session" SET "session_data" = '.eJxVjDsOwjAQBe_iGln-xR9Kes5grXdtHEC2FCcV4u4QKQW0b2bei0XY1hq3kZc4EzszyU6_WwJ85LYDukO7dY69rcuc-K7wgw5-7ZSfl8P9O6gw6rfWBRSCd4588UER6Iw6QSkoQCinvTVkAjmykwslYSJjhZpQpKBkdpK9PwbQOGc:1q3Z4t:YDv3PPzVUad7Hb-Q4ITeWtXJowDMfT_K2bPutsmWLh4', "expire_date" = '2023-06-12T09:22:11.445028+00:00'::timestamptz WHERE "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'; args=('.eJxVjDsOwjAQBe_iGln-xR9Kes5grXdtHEC2FCcV4u4QKQW0b2bei0XY1hq3kZc4EzszyU6_WwJ85LYDukO7dY69rcuc-K7wgw5-7ZSfl8P9O6gw6rfWBRSCd4588UER6Iw6QSkoQCinvTVkAjmykwslYSJjhZpQpKBkdpK9PwbQOGc:1q3Z4t:YDv3PPzVUad7Hb-Q4ITeWtXJowDMfT_K2bPutsmWLh4', datetime.datetime(2023, 6, 12, 9, 22, 11, 445028, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:161]             [DEBUG]- (0.000) COMMIT; args=None; alias=default[0m
+[35m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:22:11.449017+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 22, 11, 449017, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ("django_admin_log"."user_id" = "auth_user"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(1,); alias=default[0m
+[35m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /admin/ HTTP/1.1" 200 5556[0m
+[35m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441[0m
+[35m2023-05-29 17:22:11 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331[0m
+[35m2023-05-29 17:22:11 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380[0m
+[96m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:22:17.911776+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 22, 17, 911776, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "auth_group"; args=(); alias=default[0m
+[96m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "auth_group"; args=(); alias=default[0m
+[96m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_group"."id", "auth_group"."name" FROM "auth_group" ORDER BY "auth_group"."name" ASC; args=(); alias=default[0m
+[35m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /admin/auth/group/ HTTP/1.1" 200 7251[0m
+[35m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/css/changelists.css HTTP/1.1" 200 6584[0m
+[35m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458[0m
+[35m2023-05-29 17:22:17 [Thread-1 (process_request_thread):10296] [django.server:212]             [INFO]- "GET /static/admin/js/core.js HTTP/1.1" 200 5682[0m
+[35m2023-05-29 17:22:17 [Thread-3 (process_request_thread):19296] [django.server:212]             [INFO]- "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887[0m
+[35m2023-05-29 17:22:17 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347[0m
+[35m2023-05-29 17:22:17 [Thread-5 (process_request_thread):15264] [django.server:212]             [INFO]- "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943[0m
+[35m2023-05-29 17:22:17 [Thread-2 (process_request_thread):16196] [django.server:212]             [INFO]- "GET /static/admin/js/actions.js HTTP/1.1" 200 7872[0m
+[35m2023-05-29 17:22:17 [Thread-1 (process_request_thread):10296] [django.server:212]             [INFO]- "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531[0m
+[35m2023-05-29 17:22:18 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381[0m
+[35m2023-05-29 17:22:18 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/js/filters.js HTTP/1.1" 200 978[0m
+[35m2023-05-29 17:22:18 [Thread-4 (process_request_thread):17100] [django.server:212]             [INFO]- "GET /static/admin/img/search.svg HTTP/1.1" 200 458[0m
+[96m2023-05-29 17:22:18 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:22:17.977601+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 22, 17, 977601, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:22:18 [Thread-7 (process_request_thread):5332] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[35m2023-05-29 17:22:18 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3343[0m
+[35m2023-05-29 17:22:18 [Thread-7 (process_request_thread):5332] [django.server:212]             [INFO]- "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331[0m
+[96m2023-05-29 17:23:33 [MainThread:20840] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-05-29 17:23:33 [MainThread:20840] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-05-29 17:24:04 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:04.751382+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 4, 751382, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:04 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:04 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ("django_admin_log"."user_id" = "auth_user"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(1,); alias=default[0m
+[35m2023-05-29 17:24:04 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /admin/ HTTP/1.1" 200 6239[0m
+[96m2023-05-29 17:24:06 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:06.959454+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 6, 959454, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "customers"; args=(); alias=default[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "customers"; args=(); alias=default[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password" FROM "customers" ORDER BY "customers"."id" DESC; args=(); alias=default[0m
+[35m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /admin/customers/customers/ HTTP/1.1" 200 8903[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:07.033812+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 7, 33812, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[35m2023-05-29 17:24:07 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3343[0m
+[96m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:10.426286+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 10, 426286, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.db.backends:161]             [DEBUG]- (0.000) BEGIN; args=None; alias=default[0m
+[96m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'customers' AND "django_content_type"."model" = 'customers') LIMIT 21; args=('customers', 'customers'); alias=default[0m
+[96m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.db.backends:161]             [DEBUG]- (0.000) COMMIT; args=None; alias=default[0m
+[35m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /admin/customers/customers/add/ HTTP/1.1" 200 11482[0m
+[35m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /static/admin/css/forms.css HTTP/1.1" 200 8953[0m
+[35m2023-05-29 17:24:10 [Thread-2 (process_request_thread):9248] [django.server:212]             [INFO]- "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586[0m
+[35m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /static/admin/css/widgets.css HTTP/1.1" 200 11900[0m
+[35m2023-05-29 17:24:10 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /static/admin/js/change_form.js HTTP/1.1" 200 606[0m
+[96m2023-05-29 17:24:10 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:10.603998+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 10, 603998, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:10 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[35m2023-05-29 17:24:10 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3343[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:51.703520+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 51, 703520, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:161]             [DEBUG]- (0.000) BEGIN; args=None; alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) INSERT INTO "customers" ("create_at", "update_at", "first_name", "last_name", "email", "company", "phone", "new_password") VALUES ('2023-05-29T09:24:51.748908+00:00'::timestamptz, '2023-05-29T09:24:51.748908+00:00'::timestamptz, 'ainstan', 'li', 'ainstanli@163.com', 'tencent', '18923944522', 'ainstanli123') RETURNING "customers"."id"; args=(datetime.datetime(2023, 5, 29, 9, 24, 51, 748908, tzinfo=datetime.timezone.utc), datetime.datetime(2023, 5, 29, 9, 24, 51, 748908, tzinfo=datetime.timezone.utc), 'ainstan', 'li', 'ainstanli@163.com', 'tencent', '18923944522', 'ainstanli123'); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) INSERT INTO "django_admin_log" ("action_time", "user_id", "content_type_id", "object_id", "object_repr", "action_flag", "change_message") VALUES ('2023-05-29T09:24:51.748908+00:00'::timestamptz, 1, 7, '3', 'Customers object (3)', 1, '[{"added": {}}]') RETURNING "django_admin_log"."id"; args=(datetime.datetime(2023, 5, 29, 9, 24, 51, 748908, tzinfo=datetime.timezone.utc), 1, 7, '3', 'Customers object (3)', 1, '[{"added": {}}]'); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:161]             [DEBUG]- (0.000) COMMIT; args=None; alias=default[0m
+[35m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "POST /admin/customers/customers/add/ HTTP/1.1" 302 0[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:51.755890+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 51, 755890, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "customers"; args=(); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT COUNT(*) AS "__count" FROM "customers"; args=(); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password" FROM "customers" ORDER BY "customers"."id" DESC; args=(); alias=default[0m
+[35m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /admin/customers/customers/ HTTP/1.1" 200 9350[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:51.817325+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 51, 817325, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[35m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3343[0m
+[35m2023-05-29 17:24:51 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436[0m
+[96m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2023-05-29T09:24:57.992863+00:00'::timestamptz AND "django_session"."session_key" = '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk') LIMIT 21; args=(datetime.datetime(2023, 5, 29, 9, 24, 57, 992863, tzinfo=datetime.timezone.utc), '5ltejdm31fedmtc9lgtd2tdq7lqoxeqk'); alias=default[0m
+[96m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default[0m
+[96m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password" FROM "customers"; args=(); alias=default[0m
+[35m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/ HTTP/1.1" 200 7265[0m
+[35m2023-05-29 17:24:58 [Thread-2 (process_request_thread):9248] [django.server:212]             [INFO]- "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-4 (process_request_thread):23600] [django.server:212]             [INFO]- "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-4 (process_request_thread):23600] [django.server:212]             [INFO]- "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-4 (process_request_thread):23600] [django.server:212]             [INFO]- "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-1 (process_request_thread):4256] [django.server:212]             [INFO]- "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-3 (process_request_thread):23020] [django.server:212]             [INFO]- "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-4 (process_request_thread):23600] [django.server:212]             [INFO]- "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-2 (process_request_thread):9248] [django.server:212]             [INFO]- "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0[0m
+[35m2023-05-29 17:24:58 [Thread-5 (process_request_thread):15248] [django.server:212]             [INFO]- "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0[0m
