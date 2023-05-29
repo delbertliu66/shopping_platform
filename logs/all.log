@@ -1,0 +1,18 @@
+[96m2023-05-29 10:38:41 [MainThread:13116] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-05-29 10:38:41 [MainThread:13116] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-05-29 10:38:54 [Thread-1 (process_request_thread):19796] [django.server:212]             [INFO]- "GET / HTTP/1.1" 200 10731[0m
+[33m2023-05-29 10:38:54 [Thread-1 (process_request_thread):19796] [django.server:212]             [WARNING]- "GET /static/admin/css/fonts.css HTTP/1.1" 404 1816[0m
