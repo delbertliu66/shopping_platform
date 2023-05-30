@@ -70,6 +70,72 @@ class CustomersView(APIView):
             'data': response['data'][0]
         })
 
+    # 更新消费者， 需要在request请求体中填写bc店铺的customer的id
+    def put(self, request):
+        new_data = request.data[0]
+        bc_id_up = new_data['id']
+
+        # 查询是否具有bc_id 等于 bc_id_up的customer（用bc_id是为了方便在bc店铺数据库中修改数据）
+        try:
+            customer = Customers.objects.get(bc_id=bc_id_up)
+        except Customers.DoesNotExist:
+            # 如果不存在此customer，则返回错误信息
+            return Response({
+                'code': 404,
+                'msg': 'Customer not found!'
+            }, status=status.HTTP_404_NOT_FOUND)
+
+        # 如果存在用户则，更新用户信息，先更细bc店铺的数据
+        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
+        body = json.dumps(request.data)
+        result = requests.put(url, data=body, headers=headers)
+
+        # 更新本地数据库
+        if 'first_name' in new_data:
+            customer.first_name = new_data['first_name']
+        if 'last_name' in new_data:
+            customer.last_name = new_data['last_name']
+        if 'phone' in new_data:
+            customer.phone = new_data['phone']
+        if 'company' in new_data:
+            customer.company = new_data['company']
+        if 'authentication' in new_data:
+            customer.new_password = new_data.get('authentication', {}).get('new_password')
+        # 保存修改后的信息
+        customer.save()
+
+        # 返回
+        if result.status_code == 200:
+            return Response({
+                'code': 200,
+                'msg': 'update success!',
+                'data': result.json()['data'][0]
+            })
+        else:
+            return Response(result.json())
+
+    # 删除消费者，需要在路径参数中携带需要删除的id（bc店铺存储的id），查询参数为id:in=4,5,6
+    def delete(self, request):
+        # 从参数中将bc_id列表提取出来
+        bc_ids = request.query_params['ids']
+        # 将id_param划分为一个id列表
+        id_list = [int(id_) for id_ in bc_ids.split(',')]
+        # 删除指定的id用户（在本地是bc_id）
+        Customers.objects.filter(bc_id__in=id_list).delete()
+
+        # 然后删除bc店铺的数据
+        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers?id:in={}'.format(','.join(
+            str(_id) for _id in id_list))
+        result = requests.delete(url, headers=headers)
+
+        if result.status_code == 204:
+            return Response({
+                'code': 200,
+                'msg': 'delete success'
+            }, status=result.status_code)
+        else:
+            return Response(result)
+
 
 class CustomerLoginView(APIView):
     # 跳过token验证
@@ -96,7 +162,7 @@ class CustomerLoginView(APIView):
         payload = {
             'email': customer.email,
             # 过期时间
-            'exp': int(time.time()) + 60 * 60
+            'exp': int(time.time()) + 60 * 60 * 12
         }
 
         # 使用jwt加密信息
