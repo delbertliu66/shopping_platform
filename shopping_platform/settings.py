@@ -213,3 +213,10 @@ LOGGING = {
         }
     }
 }
+
+# 身份认证
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'utils.auth.JwtAuth',
+    ),
+}

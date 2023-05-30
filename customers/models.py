@@ -15,4 +15,3 @@ class Customers(BaseModel):
         db_table = 'customers'
         verbose_name = 'customers'
         verbose_name_plural = 'customers'
-
