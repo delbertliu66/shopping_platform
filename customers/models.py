@@ -10,29 +10,9 @@ class Customers(BaseModel):
     company = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
     new_password = models.CharField(max_length=200, blank=False, null=False)
-    bc_id = models.CharField(max_length=200, default=0)
+    bc_id = models.CharField(max_length=200)
 
     class Meta:
         db_table = 'customers'
         verbose_name = 'customers'
         verbose_name_plural = 'customers'
-
-
-class Address(BaseModel):
-    address1 = models.CharField(max_length=200, blank=False, null=False)
-    address2 = models.CharField(max_length=200)
-    address_type = models.CharField(max_length=200, blank=False, null=False)
-    city = models.CharField(max_length=200, blank=False, null=False)
-    company = models.CharField(max_length=200)
-    country_code = models.CharField(max_length=200, blank=False, null=False)
-    first_name = models.CharField(max_length=200, blank=False, null=False)
-    last_name = models.CharField(max_length=200, blank=False, null=False)
-    phone = models.CharField(max_length=200)
-    postal_code = models.CharField(max_length=200, blank=False, null=False)
-    state_or_province = models.CharField(max_length=200, blank=False, null=False)
-    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='address')
-
-    class META:
-        db_table = 'address'
-        verbose_name = 'address'
-        verbose_name_plural = 'address'
