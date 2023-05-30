@@ -63,17 +63,21 @@ class CustomersView(APIView):
                 new_password=customer_data.get('authentication', {}).get('new_password'),
                 bc_id=response['data'][0]['id']
             )
+            # 成功返回
+            return Response({
+                'code': 200,
+                'msg': 'add success',
+                'data': response['data'][0]
+            })
 
-        return Response({
-            'code': 200,
-            'msg': 'add success',
-            'data': response['data'][0]
-        })
+        # 失败返回
+        else:
+            return Response(response, status=result.status_code)
 
     # 更新消费者， 需要在request请求体中填写bc店铺的customer的id
     def put(self, request):
         new_data = request.data[0]
-        bc_id_up = new_data['id']
+        bc_id_up = request.query_params.get('bc_id')
 
         # 查询是否具有bc_id 等于 bc_id_up的customer（用bc_id是为了方便在bc店铺数据库中修改数据）
         try:
@@ -90,29 +94,29 @@ class CustomersView(APIView):
         body = json.dumps(request.data)
         result = requests.put(url, data=body, headers=headers)
 
-        # 更新本地数据库
-        if 'first_name' in new_data:
-            customer.first_name = new_data['first_name']
-        if 'last_name' in new_data:
-            customer.last_name = new_data['last_name']
-        if 'phone' in new_data:
-            customer.phone = new_data['phone']
-        if 'company' in new_data:
-            customer.company = new_data['company']
-        if 'authentication' in new_data:
-            customer.new_password = new_data.get('authentication', {}).get('new_password')
-        # 保存修改后的信息
-        customer.save()
-
         # 返回
         if result.status_code == 200:
+            # 更新本地数据库
+            if 'first_name' in new_data:
+                customer.first_name = new_data['first_name']
+            if 'last_name' in new_data:
+                customer.last_name = new_data['last_name']
+            if 'phone' in new_data:
+                customer.phone = new_data['phone']
+            if 'company' in new_data:
+                customer.company = new_data['company']
+            if 'authentication' in new_data:
+                customer.new_password = new_data.get('authentication', {}).get('new_password')
+            # 保存修改后的信息
+            customer.save()
+
             return Response({
                 'code': 200,
                 'msg': 'update success!',
                 'data': result.json()['data'][0]
             })
         else:
-            return Response(result.json())
+            return Response(result.json(), status=result.status_code)
 
     # 删除消费者，需要在路径参数中携带需要删除的id（bc店铺存储的id），查询参数为id:in=4,5,6
     def delete(self, request):
@@ -121,20 +125,28 @@ class CustomersView(APIView):
         # 将id_param划分为一个id列表
         id_list = [int(id_) for id_ in bc_ids.split(',')]
         # 删除指定的id用户（在本地是bc_id）
-        Customers.objects.filter(bc_id__in=id_list).delete()
 
-        # 然后删除bc店铺的数据
-        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers?id:in={}'.format(','.join(
-            str(_id) for _id in id_list))
-        result = requests.delete(url, headers=headers)
+        customers = Customers.objects.filter(bc_id__in=id_list)
+        # 判断要删除的用户是否存在
+        if customers.exists():
+            # 如果存在，删除bc店铺的数据，然后删除本地数据库的数据
+            url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers?id:in={}'.format(','.join(
+                str(_id) for _id in id_list))
+            result = requests.delete(url, headers=headers)
 
-        if result.status_code == 204:
-            return Response({
-                'code': 200,
-                'msg': 'delete success'
-            }, status=result.status_code)
+            if result.status_code == 204:
+                customers.delete()
+                return Response({
+                    'code': 200,
+                    'msg': 'delete success'
+                }, status=result.status_code)
+            else:
+                return Response(result)
         else:
-            return Response(result)
+            return Response({
+                'code': 404,
+                'msg': "no customers!"
+            }, status=status.HTTP_404_NOT_FOUND)
 
 
 class CustomerLoginView(APIView):
