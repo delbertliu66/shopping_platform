@@ -50,6 +50,7 @@ class CustomersView(APIView):
         url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
         body = json.dumps(requset.data)
         result = requests.post(url, data=body, headers=headers)
+        response = result.json()
 
         if result.status_code == 200:
             # 如果保存到bc店铺成功，则创建并保存新的消费者对象到本地数据库
@@ -59,10 +60,15 @@ class CustomersView(APIView):
                 email=customer_data['email'],
                 phone=customer_data['phone'],
                 company=customer_data['company'],
-                new_password=customer_data.get('authentication', {}).get('new_password')
+                new_password=customer_data.get('authentication', {}).get('new_password'),
+                bc_id=response['data'][0]['id']
             )
 
-        return Response(result.json())
+        return Response({
+            'code': 200,
+            'msg': 'add success',
+            'data': response['data'][0]
+        })
 
 
 class CustomerLoginView(APIView):
