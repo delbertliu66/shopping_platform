@@ -4,6 +4,7 @@ from customers.models import Customers
 
 
 class Addresses(BaseModel):
+    address_id = models.IntegerField(unique=True)
     address1 = models.CharField(max_length=200, blank=False, null=False)
     address2 = models.CharField(max_length=200)
     address_type = models.CharField(max_length=200, blank=False, null=False)
