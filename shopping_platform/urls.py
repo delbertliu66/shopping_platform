@@ -22,5 +22,6 @@ import customers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/api/v1/', include('customers.urls')),
-    path('shop/api/v1/', include('addresses.urls'))
+    path('shop/api/v1/', include('addresses.urls')),
+    path('shop/api/v1/', include('products.urls')),
 ]

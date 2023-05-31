@@ -174,7 +174,7 @@ class CustomerLoginView(APIView):
         payload = {
             'email': customer.email,
             # 过期时间
-            'exp': int(time.time()) + 60 * 60 * 12
+            'exp': int(time.time()) + 60 * 60 * 24 * 7
         }
 
         # 使用jwt加密信息
