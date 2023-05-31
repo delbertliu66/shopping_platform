@@ -3,11 +3,9 @@ import time
 
 import jwt
 import requests
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 from shopping_platform import settings
 from .serializers import CustomerSerializer
 from customers.models import Customers
