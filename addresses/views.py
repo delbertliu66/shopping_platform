@@ -50,7 +50,7 @@ class AddressesView(APIView):
             url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers/addresses'
             list_data = [address_data]
             # print(list_data)
-            result = requests.post(url, headers=headers, data=json.dumps(list_data).encode('utf8'))
+            result = requests.post(url, headers=headers, data=json.dumps(list_data))
 
             if result.status_code == 200:
                 # bc店铺添加成功
@@ -114,5 +114,34 @@ class AddressesView(APIView):
                 'data': result.json()['data'][0]})
         else:
             return Response(result.json(), status=status.HTTP_404_NOT_FOUND)
+
+    # 删除地址
+    def delete(self, request):
+        # 从查询参数中获取ids
+        ids_data = request.query_params.get('ids')
+        ids_list = [int(id_) for id_ in ids_data.split(',')]
+
+        # 判断传入的address_id是否存在对应的记录
+        address = Addresses.objects.filter(address_id__in=ids_list)
+        if address.exists():
+            url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers/addresses?id:in={}'.format(','.join(
+                str(_id) for _id in ids_list))
+            result = requests.delete(url, headers=headers)
+
+            if result.status_code == 204:
+                address.delete()
+                return Response({
+                    'code': 200,
+                    'msg': 'delete successful'
+                }, status=status.HTTP_200_OK)
+            else:
+                return Response(result.json(), status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({
+                'code': 404,
+                'msg': "address_id invalid"
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
