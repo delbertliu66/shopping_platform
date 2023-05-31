@@ -10,7 +10,7 @@ class Customers(BaseModel):
     company = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
     new_password = models.CharField(max_length=200, blank=False, null=False)
-    bc_id = models.CharField(max_length=200)
+    bc_id = models.CharField(max_length=200, unique=True, null=False)
 
     class Meta:
         db_table = 'customers'

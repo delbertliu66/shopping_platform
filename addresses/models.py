@@ -15,7 +15,7 @@ class Addresses(BaseModel):
     phone = models.CharField(max_length=200)
     postal_code = models.CharField(max_length=200, blank=False, null=False)
     state_or_province = models.CharField(max_length=200, blank=False, null=False)
-    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='address')
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='address', to_field='bc_id')
 
     class META:
         db_table = 'address'
