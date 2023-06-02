@@ -11,6 +11,19 @@ class Carts(BaseModel):
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)    # 购物车商品总价，最大位数10，两位小数，默认0.00
     customer = models.ForeignKey(Customers, related_name='cart', on_delete=models.CASCADE, to_field='bc_id')
 
+    def update_total(self):
+        cart_items = self.items.all()
+        total_quantity = 0
+        total_price = 0
+
+        for cart_item in cart_items:
+            total_quantity += cart_item.quantity
+            total_price += cart_item.price * cart_item.quantity
+
+        self.total_quantity = total_quantity
+        self.total_price = total_price
+        self.save()
+
     class Meta:
         db_table = 'carts'
         verbose_name = 'cart'
