@@ -220,6 +220,15 @@ DELETE: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
 
 商品分类表用于存储商品分类信息（商品需要有商品分类，才能在bc店铺显示）
 
+创建一个商品分类至少需要以下数据
+
+```
+{
+    "name": "test4",
+    "parent_id": 0
+}
+```
+
 |    字段    | 数据类型  |           说明           |
 | :--------: | :-------: | :----------------------: |
 |     id     |    int    |        主键，自增        |
@@ -228,6 +237,36 @@ DELETE: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
 | bc_cate_id |    int    | 与bc店铺中的分组的id对应 |
 | create_at  | timestamp |    创建时间，自动生成    |
 | update_at  | timestamp |    更新时间，自动生成    |
+
+
+
+商品表用于存储商品的信息
+
+创建一个商品表至少需要以下信息：（bc店铺接口中的数据, 商品分类应该是一个数组，要修改）
+
+```
+{
+    "name": "HHH333",
+    "type": "digital",
+    "weight": 0,
+    "price": 12.99,
+    "sku": "HHH-333",
+    "category": "test1"
+}
+```
+
+|    字段     | 数据类型  |                 说明                  |
+| :---------: | :-------: | :-----------------------------------: |
+|     id      |    int    |              主键，自增               |
+|    name     |  varchar  |            商品名，必填项             |
+|    type     |  varchar  | 商品种类，digital或者physical，必填项 |
+|   weight    |  decimal  |            商品重量，必填             |
+|    price    |  decimal  |          商品价格，默认为35           |
+|     sku     |  varchar  |           商品的唯一性编号            |
+| bc_prod_id  |    int    |         bc店铺中对应的商品id          |
+| category_id |    int    |           商品种类id，外键            |
+|  create_at  | timestamp |          创建时间，自动生成           |
+|  update_at  | timestamp |          更新时间，自动生成           |
 
 
 
@@ -274,4 +313,12 @@ PUT: http://127.0.0.1:8000/shop/api/v1/categories/
 DELETE: http://127.0.0.1:8000/shop/api/v1/categories/
 查询参数： id: 2
 ```
+
+
+
+## Cart Module
+
+每一个用户拥有一个购物车，需要一张购物车表，购物车与消费者是一对一关系，购物车表需要有一个customer_id与customer外键关联
+
+购物车中需要存放加入购物车的商品信息，需要一张cartitem表，表中的一条记录存储一个购物车的一个商品，则需要一个cart_id外键关联购物车，还需要一个product_id外键关联商品表
 
