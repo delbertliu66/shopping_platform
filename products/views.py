@@ -61,6 +61,44 @@ class ProductsView(APIView):
         else:
             return Response(result.json(), status=result.status_code)
 
+    # 更新产品信息
+    def put(self, request):
+        prod_data = request.data
+        prod_id = request.query_params.get('id')
+        # 先查询是否有要修改的记录
+        product = Products.objects.get(bc_pro_id=prod_id)
+
+        if not product:
+            return Response({
+                'code': 400,
+                'msg': 'Product does not exist'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # 先更新bc店铺
+        url = prod_url + "/" + str(prod_id)
+        result = requests.put(url=url, headers=headers, data=json.dumps(prod_data))
+
+        if result.status_code == 200:
+            if 'name' in prod_data:
+                product.name = prod_data['name']
+            if 'type' in prod_data:
+                product.type = prod_data['type']
+            if 'weight' in prod_data:
+                product.weight = prod_data['weight']
+            if 'price' in prod_data:
+                product.price = prod_data['price']
+            if 'sku' in prod_data:
+                product.sku = prod_data['sku']
+            if 'category' in prod_data:
+                category = Categories.objects.get(name=prod_data['category'])
+                product.category = category
+            product.save()
+
+            return Response(result.json(), status=result.status_code)
+
+        else:
+            return Response(result.json(), status=result.status_code)
+
 
 class CategoriesView(APIView):
 
