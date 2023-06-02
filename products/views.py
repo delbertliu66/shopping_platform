@@ -19,7 +19,47 @@ headers = {
 
 
 class ProductsView(APIView):
-    pass
+
+    # 获取所有产品列表
+    # https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
+    def get(self, request):
+
+        result = requests.get(url=prod_url, headers=headers)
+        return Response(result.json(), status=result.status_code)
+
+    # 新增一个产品
+    def post(self, request):
+        prod_data = request.data
+
+        # 先将产品分类查出来
+        category = Categories.objects.filter(name=prod_data['category']).first()
+        # 如果输入的产品分类不存在
+        if not category:
+            return Response({
+                'code': 400,
+                'msg': 'Category not found'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # 先在bc店铺中新建产品并保存
+        result = requests.post(url=prod_url, headers=headers, data=json.dumps(prod_data))
+
+        if result.status_code == 200:
+            Products.objects.create(
+                name=prod_data['name'],
+                type=prod_data['type'],
+                weight=prod_data['weight'],
+                price=prod_data['price'],
+                sku=prod_data['sku'],
+                bc_pro_id=result.json()['data']['id'],
+                category=category
+            )
+
+            return Response({
+                'code': 200,
+                'msg': 'create product successful'
+            })
+        else:
+            return Response(result.json(), status=result.status_code)
 
 
 class CategoriesView(APIView):
