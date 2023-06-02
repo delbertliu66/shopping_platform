@@ -99,6 +99,32 @@ class ProductsView(APIView):
         else:
             return Response(result.json(), status=result.status_code)
 
+    # 删除产品
+    def delete(self, request):
+        ids = request.query_params.get('ids')
+        prod_ids = [int(id_) for id_ in ids.split(',')]
+
+        product = Products.objects.filter(bc_pro_id__in=prod_ids)
+
+        if not product.exists():
+            return Response({
+                'code': 400,
+                'msg': 'Invalid ids'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # 先删除bc店铺数据
+        url = prod_url + '?' + 'id:in={}'.format(','.join(str(_id) for _id in prod_ids))
+        result = requests.delete(url=url, headers=headers)
+
+        if result.status_code == 204:
+            product.delete()
+            return Response({
+                'code': 204,
+                'msg': 'delete successful'
+            }, status=result.status_code)
+        else:
+            return Response(result.json())
+
 
 class CategoriesView(APIView):
 
