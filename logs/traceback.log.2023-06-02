@@ -1,0 +1,349 @@
+02/Jun/2023 15:43:02 [Thread-5 (process_request_thread):17184] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 19, in post
+    customer = Customers.objects.get(bc_id=cart_data['customer_id'])
+KeyError: 'customer_id'
+02/Jun/2023 15:43:16 [Thread-5 (process_request_thread):17184] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 19, in post
+    customer = Customers.objects.get(bc_id=cart_data['customer_id'])
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+customers.models.Customers.DoesNotExist: Customers matching query does not exist.
+02/Jun/2023 15:45:04 [Thread-5 (process_request_thread):15288] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 27, in post
+    cart = Carts.objects.create(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 266, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<QuerySet [<Customers: Customers object (6)>]>": "Carts.customer" must be a "Customers" instance.
+02/Jun/2023 15:45:43 [Thread-5 (process_request_thread):17172] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 21, in post
+    if not customer.exists():
+AttributeError: 'Customers' object has no attribute 'exists'
+02/Jun/2023 16:18:00 [Thread-1 (process_request_thread):15828] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Carts' object has no attribute 'cart_items'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 26, in get
+    cart_data = CartSerializer(cart).data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `cart_items` on serializer `CartSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Carts` instance.
+Original exception text was: 'Carts' object has no attribute 'cart_items'.
+02/Jun/2023 16:20:00 [Thread-1 (process_request_thread):1244] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'RelatedManager' object has no attribute 'cart'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 26, in get
+    cart_data = CartSerializer(cart).data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\relations.py", line 190, in get_attribute
+    return super().get_attribute(instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `cart` on serializer `CartItemSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `RelatedManager` instance.
+Original exception text was: 'RelatedManager' object has no attribute 'cart'.
+02/Jun/2023 17:07:52 [Thread-1 (process_request_thread):8168] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/1/items/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 97, in post
+    cart_item.quantity = item_data['quantity']
+AttributeError: 'NoneType' object has no attribute 'quantity'
+02/Jun/2023 17:10:29 [Thread-1 (process_request_thread):14944] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/1/items/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 104, in post
+    Carts.update_total()
+TypeError: Carts.update_total() missing 1 required positional argument: 'self'
+02/Jun/2023 17:12:19 [Thread-1 (process_request_thread):14752] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/1/items/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 91, in post
+    cart.update_total()
+AttributeError: 'QuerySet' object has no attribute 'update_total'
+02/Jun/2023 17:26:07 [Thread-1 (process_request_thread):7792] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/products/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\products\views.py", line 44, in post
+    result = requests.post(url=prod_url, headers=headers, data=json.dumps(prod_data))
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+02/Jun/2023 17:46:42 [Thread-1 (process_request_thread):7196] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/carts/1/items/
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\carts\views.py", line 115, in put
+    prod_id = request.data['prod_id']
+KeyError: 'prod_id'

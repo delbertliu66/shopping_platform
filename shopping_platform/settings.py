@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'addresses.apps.AddressesConfig',
     'products.apps.ProductsConfig',
     'carts.apps.CartsConfig',
+    'orders.apps.OrdersConfig',
     'utils',
 ]
 

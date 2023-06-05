@@ -322,3 +322,82 @@ DELETE: http://127.0.0.1:8000/shop/api/v1/categories/
 
 购物车中需要存放加入购物车的商品信息，需要一张cartitem表，表中的一条记录存储一个购物车的一个商品，则需要一个cart_id外键关联购物车，还需要一个product_id外键关联商品表
 
+
+
+
+
+
+
+## Order Module
+
+创建一个订单需要如下内容
+
+```
+{
+  "status_id": 10,
+  "customer_id": 75,
+  "billing_address": {
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "street_1": "123 Main Street",
+    "city": "Austin",
+    "state": "Texas",
+    "zip": 78751,
+    "country": "United States",
+    "country_iso2": "US",
+    "email": "janedoe@example.com"
+  },
+  "products": [
+    {
+      "product_id": "129",
+      "quantity": "3"
+    },
+    {
+      "product_id": "131",
+      "quantity": "5"
+    }
+  ]
+}
+```
+
+order表需要有一个customer_id外键关联customer中得bc_id
+
+需要有一个status_id是一个choice，用于展示订单状态
+
+需要address_id与address中得与bc店铺中address得id对应得address_id
+
+需要一个total_quantity 存储订单中商品总数量
+
+需要一个total_price 存储订单中商品总价
+
+
+
+orderItem表是order得具体细节
+
+需要有一个order_id与order外键关联
+
+需要有一个product_id与product中得bc_prod_id外键关联
+
+需要有一个quantity存储一条item的商品数量
+
+需要有一个total_price存储一条item的总价
+
+### order status
+
+| Status ID | Name                         | Description                                                  |
+| --------- | ---------------------------- | ------------------------------------------------------------ |
+| 0         | Incomplete                   | An incomplete order happens when a shopper reached the payment page, but did not complete the transaction. |
+| 1         | Pending                      | Customer started the checkout process, but did not complete it. |
+| 2         | Shipped                      | Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action. |
+| 3         | Partially Shipped            | Only some items in the order have been shipped, due to some products being pre-order only or other reasons. |
+| 4         | Refunded                     | Seller has used the Refund action.                           |
+| 5         | Cancelled                    | Seller has cancelled an order, due to a stock inconsistency or other reasons. |
+| 6         | Declined                     | Seller has marked the order as declined for lack of manual payment, or other reasons. |
+| 7         | Awaiting Payment             | Customer has completed checkout process, but payment has yet to be confirmed. |
+| 8         | Awaiting Pickup              | Order has been pulled, and is awaiting customer pickup from a seller-specified location. |
+| 9         | Awaiting Shipment            | Order has been pulled and packaged, and is awaiting collection from a shipping provider. |
+| 10        | Completed                    | Client has paid for their digital product and their file(s) are available for download. |
+| 11        | Awaiting Fulfillment         | Customer has completed the checkout process and payment has been confirmed. |
+| 12        | Manual Verification Required | Order is on hold while some aspect needs to be manually confirmed. |
+| 13        | Disputed                     | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
+| 14        | Partially Refunded           | Seller has partially refunded the order.                     |
