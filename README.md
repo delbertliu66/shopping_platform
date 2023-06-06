@@ -4,7 +4,7 @@ store-hash: rmz2xgu42d
 
 api doc:  https://developer.bigcommerce.com/docs/rest-management/customers-v2
 
-
+postman：https://api.postman.com/collections/21830621-d9c5ebe2-8c6b-4de1-8e12-d92daffc7c6c?access_key=PMAT-01H1XV0PRJY3NPZNHMNCC4ZBPN
 
 # User Module
 
@@ -381,6 +381,14 @@ orderItem表是order得具体细节
 需要有一个quantity存储一条item的商品数量
 
 需要有一个total_price存储一条item的总价
+
+
+
+下单流程
+
+实际情况中，从登录用户的购物车中下单，所以不考虑校验customer_id, product_id, 等情况
+
+首先，将下单数据保存到bc店铺
 
 ### order status
 

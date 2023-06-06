@@ -8,9 +8,7 @@ from customers.models import Customers
 from addresses.models import Addresses
 from .models import Orders,OrderItems
 from products.models import Products
-from addresses.views import AddressesView
-from rest_framework.test import APIRequestFactory
-
+from rest_framework import status
 
 headers = {
     "X-Auth-Token": "n4npdilxz1ckdibl3wo8d8yehx2hi3x",
@@ -105,6 +103,39 @@ class OrdersView(APIView):
             order.update_quantity_price()
             return Response(result.json(), status=result.status_code)
         return Response(result.json(), status=result.status_code)
+
+    # 更新订单信息
+    def put(self, request):
+        pass
+
+    # 删除一条订单
+    def delete(self, request):
+        bc_order_id = request.query_params.get('id')
+
+        order = Orders.objects.filter(bc_order_id=bc_order_id)
+        if not order.exists():
+            return Response({
+                'code': 400,
+                'msg': 'id does not exist'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}
+        url = order_url + '/' + str(bc_order_id)
+
+        result = requests.delete(url=url, headers=headers)
+
+        if result.status_code == 204:
+            order.delete()
+
+            return Response({
+                'code': 204,
+                'msg': 'delete successful'
+            }, status=result.status_code)
+        else:
+            return Response(result.json(), status=result.status_code)
+
+
+
 
 
 
