@@ -1,6 +1,6 @@
 import json
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 import requests
 from rest_framework.response import Response
@@ -21,7 +21,6 @@ headers = {
 class ProductsView(APIView):
 
     # 获取所有产品列表
-    # https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
     def get(self, request):
 
         result = requests.get(url=prod_url, headers=headers)
@@ -138,21 +137,23 @@ class CategoriesView(APIView):
         cate_data = request.data
         # 先判断name是否重复
         new_category = Categories.objects.filter(name=cate_data['name'])
+
         # 如果存在同名，则不能添加
         if new_category.exists():
             return Response({
                 'code': 400,
                 'msg': 'Category name already exists!'
             }, status=status.HTTP_400_BAD_REQUEST)
+
         # 如果不存在同名，则先在bc店铺新增
         result = requests.post(url=cate_url, headers=headers, data=json.dumps(cate_data))
+
         # 判断返回结果
         if result.status_code == 200:
             # 将数据存入本地数据库
             new_category = Categories.objects.create(
-                name=cate_data['name'],
                 bc_cate_id=result.json()['data']['id'],
-                parent_id=cate_data['parent_id']
+                **cate_data
             )
             return Response(result.json(), status=result.status_code)
         else:
@@ -164,19 +165,22 @@ class CategoriesView(APIView):
         cate_id = request.query_params.get('id')
 
         # 先查询输入的id是否存在对应的记录
-        try:
-            category = Categories.objects.get(bc_cate_id=cate_id)
-        except Categories.DoesNotExist:
-            # 如果不存在直接返回
-            return Response({
-                'code': 400,
-                'msg': "Invalid id"
-            }, status=status.HTTP_400_BAD_REQUEST)
+        category = get_object_or_404(Categories, bc_cate_id=cate_id)
+        # try:
+        #     category = Categories.objects.get(bc_cate_id=cate_id)
+        # except Categories.DoesNotExist:
+        #     # 如果不存在直接返回
+        #     return Response({
+        #         'code': 400,
+        #         'msg': "Invalid id"
+        #     }, status=status.HTTP_400_BAD_REQUEST)
 
         # 如果存在记录，判断修改的名字是否重复，判断修改的parent_id是否存在
         if 'name' in cate_data:
-            new_category = Categories.objects.filter(name=cate_data['name'])
-            if new_category.exists():
+            # new_category = Categories.objects.filter(name=cate_data['name'])
+            # 优化代码
+            category_exists = Categories.objects.filter(name=cate_data['name']).exists()
+            if category_exists:
                 return Response({
                     'code': 400,
                     'msg': 'New category name already exists!'
@@ -184,8 +188,10 @@ class CategoriesView(APIView):
             else:
                 category.name = cate_data['name']
         if 'parent_id' in cate_data:
-            new_category = Categories.objects.filter(bc_cate_id=cate_data['parent_id'])
-            if not new_category.exists() and cate_data['parent_id'] != 0:
+            # new_category = Categories.objects.filter(bc_cate_id=cate_data['parent_id'])
+            # 优化代码
+            category_exists = Categories.objects.filter(bc_cate_id=cate_data['parent_id']).exists()
+            if not category_exists and cate_data['parent_id'] != 0:
                 return Response({
                     'code': 400,
                     'msg': 'parent_id does not exist!'
