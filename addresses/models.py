@@ -10,6 +10,7 @@ class Addresses(BaseModel):
     address_type = models.CharField(max_length=200, blank=False, null=False)
     city = models.CharField(max_length=200, blank=False, null=False)
     company = models.CharField(max_length=200)
+    country = models.CharField(max_length=200, blank=False, null=False)
     country_code = models.CharField(max_length=200, blank=False, null=False)
     first_name = models.CharField(max_length=200, blank=False, null=False)
     last_name = models.CharField(max_length=200, blank=False, null=False)
@@ -19,7 +20,7 @@ class Addresses(BaseModel):
     customer = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='address', to_field='bc_id')
 
     class META:
-        db_table = 'address'
+        db_table = 'addresses'
         verbose_name = 'address'
         verbose_name_plural = 'addresses'
 

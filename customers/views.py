@@ -53,7 +53,7 @@ class CustomersView(APIView):
 
     # 新增消费者（首先要保存到自己的数据库中，然后上传到bc官方数据库）
     def post(self, requset):
-        # 获取request作用域中的值
+        # 获取request作用域中的值（引用）
         customer_data = requset.data
 
         # 将新增的消费者上传到bc店铺的数据库
