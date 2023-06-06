@@ -14,5 +14,5 @@ class Customers(BaseModel):
 
     class Meta:
         db_table = 'customers'
-        verbose_name = 'customers'
+        verbose_name = 'customer'
         verbose_name_plural = 'customers'

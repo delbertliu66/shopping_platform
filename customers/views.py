@@ -17,18 +17,30 @@ headers = {
     "Accept": "application/json"
 }
 
+customer_url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
+
+
+def create_customer_in_local_database(customer_data, bc_id):
+    new_customer = Customers.objects.create(
+        first_name=customer_data['first_name'],
+        last_name=customer_data['last_name'],
+        email=customer_data['email'],
+        phone=customer_data['phone'],
+        company=customer_data['company'],
+        new_password=customer_data.get('authentication', {}).get('new_password'),
+        bc_id=bc_id
+    )
+    return new_customer
+
 
 # Create your views here.
 class CustomersView(APIView):
 
     # 获取消费者列表（从bc官方获取）
     def get(self, requset):
-        # customers = Customers.objects.all()
-        # # 上一句得到的结果为查询集，需要通过序列化得到数据
-        # customers_data = CustomerSerializer(customers, many=True).data
-        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
+
         # 从bc官方获取消费者数据
-        result = requests.get(url, headers=headers)
+        result = requests.get(customer_url, headers=headers)
         customers = result.json()['data']
         # 返回固定格式
         return Response({
@@ -42,25 +54,15 @@ class CustomersView(APIView):
     # 新增消费者（首先要保存到自己的数据库中，然后上传到bc官方数据库）
     def post(self, requset):
         # 获取request作用域中的值
-        customer_data = requset.data[0]
+        customer_data = requset.data
 
         # 将新增的消费者上传到bc店铺的数据库
-        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
-        body = json.dumps(requset.data)
-        result = requests.post(url, data=body, headers=headers)
+        result = requests.post(customer_url, data=json.dumps([customer_data]), headers=headers)
         response = result.json()
 
         if result.status_code == 200:
             # 如果保存到bc店铺成功，则创建并保存新的消费者对象到本地数据库
-            new_customer = Customers.objects.create(
-                first_name=customer_data['first_name'],
-                last_name=customer_data['last_name'],
-                email=customer_data['email'],
-                phone=customer_data['phone'],
-                company=customer_data['company'],
-                new_password=customer_data.get('authentication', {}).get('new_password'),
-                bc_id=response['data'][0]['id']
-            )
+            new_customer = create_customer_in_local_database(customer_data, response['data'][0].get('id'))
             # 成功返回
             return Response({
                 'code': 200,
@@ -74,7 +76,7 @@ class CustomersView(APIView):
 
     # 更新消费者， 需要在request请求体中填写bc店铺的customer的id
     def put(self, request):
-        new_data = request.data[0]
+        new_data = request.data
         bc_id_up = request.query_params.get('bc_id')
 
         # 查询是否具有bc_id 等于 bc_id_up的customer（用bc_id是为了方便在bc店铺数据库中修改数据）
@@ -86,26 +88,35 @@ class CustomersView(APIView):
                 'code': 404,
                 'msg': 'Customer not found!'
             }, status=status.HTTP_404_NOT_FOUND)
-
         # 如果存在用户则，更新用户信息，先更细bc店铺的数据
         url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers'
-        body = json.dumps(request.data)
-        result = requests.put(url, data=body, headers=headers)
+        result = requests.put(url, data=json.dumps([request.data]), headers=headers)
 
         # 返回
         if result.status_code == 200:
+
+            new_password = new_data.get('authentication', {}).get('new_password')
+            if new_password is not None:
+                customer.new_password = new_password
+            new_data.pop('id', None)
+            # 优化代码
+            for key, value in new_data.items():
+                if hasattr(customer, key):
+                    setattr(customer, key, value)
+
             # 更新本地数据库
-            if 'first_name' in new_data:
-                customer.first_name = new_data['first_name']
-            if 'last_name' in new_data:
-                customer.last_name = new_data['last_name']
-            if 'phone' in new_data:
-                customer.phone = new_data['phone']
-            if 'company' in new_data:
-                customer.company = new_data['company']
-            if 'authentication' in new_data:
-                customer.new_password = new_data.get('authentication', {}).get('new_password')
+            # if 'first_name' in new_data:
+            #     customer.first_name = new_data['first_name']
+            # if 'last_name' in new_data:
+            #     customer.last_name = new_data['last_name']
+            # if 'phone' in new_data:
+            #     customer.phone = new_data['phone']
+            # if 'company' in new_data:
+            #     customer.company = new_data['company']
+            # if 'authentication' in new_data:
+            #     customer.new_password = new_data.get('authentication', {}).get('new_password')
             # 保存修改后的信息
+
             customer.save()
 
             return Response({
