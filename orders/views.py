@@ -74,7 +74,7 @@ class OrdersView(APIView):
                 add_address_result = requests.post(
                     url='http://127.0.0.1:8000/shop/api/v1/customers/addresses',
                     headers=add_headers,
-                    data=json.dumps(data))
+                    data=json.dumps(data)).json()
                 address_id = add_address_result.content['data'][0].get('id')
                 address = Addresses.objects.get(address_id=add_address_result)
 
@@ -106,7 +106,7 @@ class OrdersView(APIView):
 
     # 删除一条订单
     def delete(self, request):
-        bc_order_id = request.query_params.get('id')
+        bc_order_id = request.data['id']
 
         order = Orders.objects.filter(bc_order_id=bc_order_id)
         if not order.exists():
@@ -115,9 +115,7 @@ class OrdersView(APIView):
                 'msg': 'id does not exist'
             }, status=status.HTTP_400_BAD_REQUEST)
 
-        # https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}
         url = order_url + '/' + str(bc_order_id)
-
         result = requests.delete(url=url, headers=headers)
 
         if result.status_code == 204:
