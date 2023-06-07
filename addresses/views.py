@@ -51,23 +51,6 @@ class AddressesView(APIView):
                 **address_data,
                 customer=customer
             )
-
-            # new_address = Addresses.objects.create(
-            #     address_id=result.json()['data'][0]['id'],
-            #     address1=address_data['address1'],
-            #     address2=address_data['address2'],
-            #     address_type=address_data['address_type'],
-            #     city=address_data['city'],
-            #     company=address_data['company'],
-            #     country_code=address_data['country_code'],
-            #     first_name=address_data['first_name'],
-            #     last_name=address_data['last_name'],
-            #     phone=address_data['phone'],
-            #     postal_code=address_data['postal_code'],
-            #     state_or_province=address_data['state_or_province'],
-            #     customer=customer
-            # )
-
             return Response(result.json())
         else:
             return Response(result.json(), status=status.HTTP_404_NOT_FOUND)
@@ -87,29 +70,6 @@ class AddressesView(APIView):
             for key, value in address_data.items():
                 if hasattr(address, key):
                     setattr(address, key, value)
-
-            # if 'address1' in address_data:
-            #     address.address1 = address_data['address1']
-            # if 'address2' in address_data:
-            #     address.address2 = address_data['address2']
-            # if 'address_type' in address_data:
-            #     address.address_type = address_data['address_type']
-            # if 'city' in address_data:
-            #     address.city = address_data['city']
-            # if 'company' in address_data:
-            #     address.company = address_data['company']
-            # if 'country_code' in address_data:
-            #     address.country_code = address_data['country_code']
-            # if 'first_name' in address_data:
-            #     address.first_name = address_data['first_name']
-            # if 'last_name' in address_data:
-            #     address.last_name = address['last_name']
-            # if 'phone' in address_data:
-            #     address.phone = address_data['phone']
-            # if 'postal_code' in address_data:
-            #     address.postal_code = address_data['postal_code']
-            # if 'state_or_province' in address_data:
-            #     address.state_or_province = address_data['state_or_province']
             address.save()
             return Response({
                 'code': 200,
@@ -121,14 +81,13 @@ class AddressesView(APIView):
     # 删除地址
     def delete(self, request):
         # 从查询参数中获取ids
-        ids_data = request.query_params.get('ids')
-        ids_list = [int(id_) for id_ in ids_data.split(',')]
+        address_ids = request.data['ids']
 
         # 判断传入的address_id是否存在对应的记录
-        address = Addresses.objects.filter(address_id__in=ids_list)
+        address = Addresses.objects.filter(address_id__in=address_ids)
         if address.exists():
             url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/customers/addresses?id:in={}'.format(','.join(
-                str(_id) for _id in ids_list))
+                str(_id) for _id in address_ids))
             result = requests.delete(url, headers=headers)
 
             if result.status_code == 204:

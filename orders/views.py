@@ -1,6 +1,6 @@
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 import requests
 from rest_framework.response import Response
@@ -33,7 +33,7 @@ class OrdersView(APIView):
         order_data = request.data
         address_data = order_data['billing_address']
         # 先查询出输入的数据
-        customer = Customers.objects.get(bc_id=order_data['customer_id'])
+        customer = get_object_or_404(Customers, bc_id=order_data['customer_id'])
         address = Addresses.objects.filter(
             customer_id=order_data['customer_id'],
             first_name=address_data['first_name'],
@@ -64,10 +64,6 @@ class OrdersView(APIView):
                     "postal_code": str(address_data['zip']),
                     "state_or_province": address_data['state']
                 }
-                # 调用address中的post方法,新增地址
-                # post_address_data = AddressesView.post(json.dumps(data))
-                # response_content = post_address_data.content
-                # address = Addresses.objects.get(address_id=response_content['id'])
 
                 add_headers = {
                     'Content-Type': 'application/json',
@@ -76,7 +72,7 @@ class OrdersView(APIView):
                 }
 
                 add_address_result = requests.post(
-                    url='http://127.0.0.1:8000/shop/api/v1/customers/addresses/',
+                    url='http://127.0.0.1:8000/shop/api/v1/customers/addresses',
                     headers=add_headers,
                     data=json.dumps(data))
                 address_id = add_address_result.content['data'][0].get('id')
