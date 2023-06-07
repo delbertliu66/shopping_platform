@@ -28,27 +28,25 @@ class ProductsView(APIView):
 
     # 新增一个产品
     def post(self, request):
-        prod_data = request.data
+        prod_data = request.data.copy()
 
         # 先将产品分类查出来
-        category = Categories.objects.filter(name=prod_data['category']).first()
+        # category = Categories.objects.filter(name=prod_data['category'])
+        category = get_object_or_404(Categories, name=request.data['category'])
+        prod_data.pop('category', None)
         # 如果输入的产品分类不存在
-        if not category:
-            return Response({
-                'code': 400,
-                'msg': 'Category not found'
-            }, status=status.HTTP_400_BAD_REQUEST)
+        # if not category.exists():
+        #     return Response({
+        #         'code': 400,
+        #         'msg': 'Category not found'
+        #     }, status=status.HTTP_400_BAD_REQUEST)
 
         # 先在bc店铺中新建产品并保存
-        result = requests.post(url=prod_url, headers=headers, data=json.dumps(prod_data))
+        result = requests.post(url=prod_url, headers=headers, data=json.dumps(request.data))
 
         if result.status_code == 200:
             Products.objects.create(
-                name=prod_data['name'],
-                type=prod_data['type'],
-                weight=prod_data['weight'],
-                price=prod_data['price'],
-                sku=prod_data['sku'],
+                **prod_data,
                 bc_pro_id=result.json()['data']['id'],
                 category=category
             )
@@ -60,12 +58,12 @@ class ProductsView(APIView):
         else:
             return Response(result.json(), status=result.status_code)
 
-    # 更新产品信息
+    # 更新产品信息（bc店铺没有category_id）
     def put(self, request):
-        prod_data = request.data
+        prod_data = request.data.copy()
         prod_id = request.query_params.get('id')
         # 先查询是否有要修改的记录
-        product = Products.objects.get(bc_pro_id=prod_id)
+        product = Products.objects.filter(bc_pro_id=prod_id).first()
 
         if not product:
             return Response({
@@ -78,19 +76,27 @@ class ProductsView(APIView):
         result = requests.put(url=url, headers=headers, data=json.dumps(prod_data))
 
         if result.status_code == 200:
-            if 'name' in prod_data:
-                product.name = prod_data['name']
-            if 'type' in prod_data:
-                product.type = prod_data['type']
-            if 'weight' in prod_data:
-                product.weight = prod_data['weight']
-            if 'price' in prod_data:
-                product.price = prod_data['price']
-            if 'sku' in prod_data:
-                product.sku = prod_data['sku']
             if 'category' in prod_data:
                 category = Categories.objects.get(name=prod_data['category'])
                 product.category = category
+                prod_data.pop('category', None)
+
+            for key, value in prod_data.items():
+                if hasattr(product, key):
+                    setattr(product, key, value)
+            # if 'name' in prod_data:
+            #     product.name = prod_data['name']
+            # if 'type' in prod_data:
+            #     product.type = prod_data['type']
+            # if 'weight' in prod_data:
+            #     product.weight = prod_data['weight']
+            # if 'price' in prod_data:
+            #     product.price = prod_data['price']
+            # if 'sku' in prod_data:
+            #     product.sku = prod_data['sku']
+            # if 'category' in prod_data:
+            #     category = Categories.objects.get(name=prod_data['category'])
+            #     product.category = category
             product.save()
 
             return Response(result.json(), status=result.status_code)
