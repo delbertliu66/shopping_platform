@@ -37,6 +37,6 @@ class CartItems(BaseModel):
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     class Meta:
-        db_table = 'items'
-        verbose_name = 'item'
-        verbose_name_plural = 'items'
+        db_table = 'cart_items'
+        verbose_name = 'cart_item'
+        verbose_name_plural = 'cart_items'

@@ -64,18 +64,14 @@ class CartsView(APIView):
 
 class CartItemsView(APIView):
 
-    # cart_id与访问路径传递
-    def get(self, request, cart_id=None):
-        pass
-
     # 将商品加入购物车
     def post(self, request, cart_id=None):
-        item_data = request.data
+        item_data = request.data.copy()
         prod_id = item_data['product_id']
-        product = Products.objects.filter(bc_pro_id=prod_id).first()
+        product_query = Products.objects.filter(bc_pro_id=prod_id)
         cart = Carts.objects.filter(id=cart_id).first()
 
-        if not product:
+        if not product_query.exists():
             return Response({
                 'code': 400,
                 'message': 'Product not found'
@@ -99,7 +95,7 @@ class CartItemsView(APIView):
                 quantity=item_data['quantity'],
                 cart_id=cart_id,
                 product_id=prod_id,
-                price=product.price
+                price=product_query.first().price
             )
 
             cart.update_total()
