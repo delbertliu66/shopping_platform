@@ -109,6 +109,7 @@ class CartItemsView(APIView):
     def put(self, request, cart_id=None):
         quantity = request.data['quantity']
         prod_id = request.data['product_id']
+        increase_or_reset = request.data['increase_or_reset']
 
         item = CartItems.objects.filter(cart_id=cart_id, product_id=prod_id).first()
         cart = Carts.objects.filter(id=cart_id).first()
@@ -120,8 +121,24 @@ class CartItemsView(APIView):
             }, status=status.HTTP_400_BAD_REQUEST)
 
         else:
-            item.quantity = quantity
-            item.save()
+            if increase_or_reset == 0:
+                # 重置
+                item.quantity += quantity
+            elif increase_or_reset == 1:
+                # 增加
+                item.quantity = quantity
+            else:
+                # 减少
+                if quantity > item.quantity:
+                    return Response({
+                        'code': 400,
+                        'msg': 'Decrease Quantity Exceeding Current Item Quantity'
+                    }, status=status.HTTP_400_BAD_REQUEST)
+                item.quantity -= quantity
+            if item.quantity == 0:
+                item.delete()
+            else:
+                item.save()
             cart.update_total()
 
             return Response({
