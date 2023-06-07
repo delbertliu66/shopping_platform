@@ -31,15 +31,8 @@ class ProductsView(APIView):
         prod_data = request.data.copy()
 
         # 先将产品分类查出来
-        # category = Categories.objects.filter(name=prod_data['category'])
-        category = get_object_or_404(Categories, name=request.data['category'])
-        prod_data.pop('category', None)
-        # 如果输入的产品分类不存在
-        # if not category.exists():
-        #     return Response({
-        #         'code': 400,
-        #         'msg': 'Category not found'
-        #     }, status=status.HTTP_400_BAD_REQUEST)
+        category = get_object_or_404(Categories, bc_cate_id=request.data['categories'][0])
+        prod_data.pop('categories', None)
 
         # 先在bc店铺中新建产品并保存
         result = requests.post(url=prod_url, headers=headers, data=json.dumps(request.data))
@@ -58,10 +51,10 @@ class ProductsView(APIView):
         else:
             return Response(result.json(), status=result.status_code)
 
-    # 更新产品信息（bc店铺没有category_id）
+    # 更新产品信息
     def put(self, request):
         prod_data = request.data.copy()
-        prod_id = request.query_params.get('id')
+        prod_id = request.data['id']
         # 先查询是否有要修改的记录
         product = Products.objects.filter(bc_pro_id=prod_id).first()
 
@@ -73,30 +66,18 @@ class ProductsView(APIView):
 
         # 先更新bc店铺
         url = prod_url + "/" + str(prod_id)
+        prod_data.pop('id', None)
         result = requests.put(url=url, headers=headers, data=json.dumps(prod_data))
 
         if result.status_code == 200:
-            if 'category' in prod_data:
-                category = Categories.objects.get(name=prod_data['category'])
+            if 'categories' in prod_data:
+                category = Categories.objects.get(bc_cate_id=prod_data['categories'][0])
                 product.category = category
-                prod_data.pop('category', None)
+                prod_data.pop('categories', None)
 
             for key, value in prod_data.items():
                 if hasattr(product, key):
                     setattr(product, key, value)
-            # if 'name' in prod_data:
-            #     product.name = prod_data['name']
-            # if 'type' in prod_data:
-            #     product.type = prod_data['type']
-            # if 'weight' in prod_data:
-            #     product.weight = prod_data['weight']
-            # if 'price' in prod_data:
-            #     product.price = prod_data['price']
-            # if 'sku' in prod_data:
-            #     product.sku = prod_data['sku']
-            # if 'category' in prod_data:
-            #     category = Categories.objects.get(name=prod_data['category'])
-            #     product.category = category
             product.save()
 
             return Response(result.json(), status=result.status_code)
@@ -106,9 +87,7 @@ class ProductsView(APIView):
 
     # 删除产品
     def delete(self, request):
-        ids = request.query_params.get('ids')
-        prod_ids = [int(id_) for id_ in ids.split(',')]
-
+        prod_ids = request.data['ids']
         product = Products.objects.filter(bc_pro_id__in=prod_ids)
 
         if not product.exists():
@@ -167,24 +146,13 @@ class CategoriesView(APIView):
 
     # 更新商品分类
     def put(self, request):
-        cate_data = request.data
-        cate_id = request.query_params.get('id')
+        cate_data = request.data.copy()
+        cate_id = request.data['id']
 
         # 先查询输入的id是否存在对应的记录
         category = get_object_or_404(Categories, bc_cate_id=cate_id)
-        # try:
-        #     category = Categories.objects.get(bc_cate_id=cate_id)
-        # except Categories.DoesNotExist:
-        #     # 如果不存在直接返回
-        #     return Response({
-        #         'code': 400,
-        #         'msg': "Invalid id"
-        #     }, status=status.HTTP_400_BAD_REQUEST)
-
         # 如果存在记录，判断修改的名字是否重复，判断修改的parent_id是否存在
         if 'name' in cate_data:
-            # new_category = Categories.objects.filter(name=cate_data['name'])
-            # 优化代码
             category_exists = Categories.objects.filter(name=cate_data['name']).exists()
             if category_exists:
                 return Response({
@@ -194,8 +162,6 @@ class CategoriesView(APIView):
             else:
                 category.name = cate_data['name']
         if 'parent_id' in cate_data:
-            # new_category = Categories.objects.filter(bc_cate_id=cate_data['parent_id'])
-            # 优化代码
             category_exists = Categories.objects.filter(bc_cate_id=cate_data['parent_id']).exists()
             if not category_exists and cate_data['parent_id'] != 0:
                 return Response({
@@ -205,6 +171,7 @@ class CategoriesView(APIView):
             else:
                 category.parent_id = cate_data['parent_id']
 
+        cate_data.pop('id', None)
         # 更新bc店铺数据
         url = cate_url + '/' + str(cate_id)
         result = requests.put(url=url, headers=headers, data=json.dumps(cate_data))
@@ -220,9 +187,9 @@ class CategoriesView(APIView):
 
     # 删除商品分类
     def delete(self, request):
-        cate_id = request.query_params.get('id')
+        cate_ids = request.data['ids']
         # 判断要删除的记录是否存在
-        category = Categories.objects.filter(bc_cate_id=cate_id)
+        category = Categories.objects.filter(bc_cate_id__in=cate_ids)
 
         if not category.exists():
             return Response({
@@ -231,7 +198,7 @@ class CategoriesView(APIView):
             }, status=status.HTTP_400_BAD_REQUEST)
 
         # 先删除bc店铺的数据
-        url = cate_url + '/' + str(cate_id)
+        url = cate_url + '?' + 'id:in={}'.format(','.join(str(_cate_id) for _cate_id in cate_ids))
         result = requests.delete(url=url, headers=headers)
 
         if result.status_code == 204:
