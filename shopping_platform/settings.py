@@ -224,3 +224,17 @@ REST_FRAMEWORK = {
         'utils.auth.JwtAuth',
     ),
 }
+
+# Redis缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",		# 使用django-redis的缓存
+        "LOCATION": "redis://192.168.114.114:6379/5",			# redis数据库的位置
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100},
+            "DECODE_RESPONSES": True,			# 自动将byte转成字符串
+            "PASSWORD": "root",						# 设置密码
+        }
+    }
+}

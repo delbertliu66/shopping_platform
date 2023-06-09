@@ -1,7 +1,7 @@
 import jwt
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed
-
+from django.core.cache import cache
 from customers.models import Customers
 from shopping_platform import settings
 
@@ -25,6 +25,7 @@ class JwtAuth(BaseAuthentication):
 
         if not customer:
             raise AuthenticationFailed('Invalid Token')
+
         # 如果正确返回
         return customer, None
 

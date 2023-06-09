@@ -3,6 +3,7 @@ import time
 
 import jwt
 import requests
+from django.core.cache import cache
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -193,7 +194,7 @@ class CustomerLoginView(APIView):
 
         # 使用jwt加密信息
         token = jwt.encode(payload, settings.SECRET_KEY)
-
+        cache.set('email', customer.email, 60 * 5)
         # 下发token
         return Response({
             'code': 200,
