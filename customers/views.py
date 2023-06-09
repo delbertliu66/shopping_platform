@@ -141,6 +141,28 @@ class CustomersView(APIView):
             }, status=status.HTTP_404_NOT_FOUND)
 
 
+class CustomerDetailView(APIView):
+
+    # 获取一个用户的详细信息
+    def get(self, request):
+        customer_id = request.GET.get('customer_id')
+        customer_query = Customers.objects.prefetch_related('address').get(bc_id=customer_id)
+
+        if customer_query:
+            customer = customer_query
+            customer_data = CustomerSerializer(customer).data
+
+            return Response({
+                'code': 200,
+                'data': customer_data
+            })
+        else:
+            return Response({
+                'code': 400,
+                'msg': 'Customer not found'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+
 class CustomerLoginView(APIView):
     # 跳过token验证
     authentication_classes = ()
