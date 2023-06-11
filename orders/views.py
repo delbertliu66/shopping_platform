@@ -1,5 +1,6 @@
 import json
 
+from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 import requests
@@ -9,6 +10,7 @@ from addresses.models import Addresses
 from .models import Orders,OrderItems
 from products.models import Products
 from rest_framework import status
+from .seriliazers import OrderSerializers, OrderItemSerializers
 
 headers = {
     "X-Auth-Token": "n4npdilxz1ckdibl3wo8d8yehx2hi3x",
@@ -100,10 +102,6 @@ class OrdersView(APIView):
             return Response(result.json(), status=result.status_code)
         return Response(result.json(), status=result.status_code)
 
-    # 更新订单信息
-    def put(self, request):
-        pass
-
     # 删除一条订单
     def delete(self, request):
         bc_order_id = request.data['id']
@@ -129,10 +127,32 @@ class OrdersView(APIView):
             return Response(result.json(), status=result.status_code)
 
 
+class OrderDetailsView(APIView):
 
+    # 获取单个订单详情
+    def get(self, request, order_id):
+        order = cache.get(f'order:{order_id}')
+        if order:
+            order_data = OrderSerializers(order).data
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': order_data
+            })
+        order = Orders.objects.prefetch_related('items').filter(bc_order_id=order_id).first()
+        if order:
+            cache.set(f'order:{order.bc_order_id}', order)
+            order_data = OrderSerializers(order).data
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': order_data
+            })
+        else:
+            return Response({
+                'code': 400
+            }, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-
-
-
+    # 更新订单信息（更新订单状态)
+    def put(self, request, order_id):
+        pass
