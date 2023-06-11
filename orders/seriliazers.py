@@ -6,7 +6,7 @@ class OrderItemSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = OrderItems
-        exclude = ['create_at', 'update_at', 'id', 'order']
+        exclude = ['create_at', 'update_at', 'id']
 
 
 class OrderSerializers(serializers.ModelSerializer):
@@ -18,6 +18,6 @@ class OrderSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
     def get_items(self, obj):
-        order_items = OrderItems.objects.all()
+        order_items = OrderItems.objects.filter(order=obj)
         order_data = OrderItemSerializers(order_items, many=True).data
         return order_data
