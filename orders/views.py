@@ -24,11 +24,22 @@ class OrdersView(APIView):
 
     # 获取所有订单列表
     def get(self, request):
+        orders = cache.get('orders')
+        if orders:
+            return Response({
+                'code': 200,
+                'orders': orders
+            })
+
         result = requests.get(url=order_url, headers=headers)
-        return Response({
-            'code': 200,
-            'orders': result.json()
-        }, status=result.status_code)
+        if result.status_code == 200:
+            cache.set('orders', result.json(), timeout=60 * 10)
+            return Response({
+                'code': 200,
+                'orders': result.json()
+            })
+        else:
+            return Response(result.json(), status=result.status_code)
 
     # 新增一个订单
     def post(self, request):
