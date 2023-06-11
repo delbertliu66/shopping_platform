@@ -127,10 +127,10 @@ class CartItemsView(APIView):
 
         else:
             if increase_or_reset == 0:
-                # 重置
+                # 增加
                 item.quantity += quantity
             elif increase_or_reset == 1:
-                # 增加
+                # 重置
                 item.quantity = quantity
             else:
                 # 减少
