@@ -18,3 +18,10 @@ class CustomerSerializer(serializers.ModelSerializer):
         #     addresses.append(address)
         address_data = PartialAddressesSerializer(addresses_query, many=True).data
         return address_data
+
+
+class PartialCustomerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        fields = ['bc_id', 'first_name', 'last_name', 'email']
+        model = Customers
