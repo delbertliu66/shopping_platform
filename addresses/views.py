@@ -1,9 +1,11 @@
 import json
 
+from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from .serializers import FullAddressesSerializer
 import requests
 
 from addresses.models import Addresses
@@ -24,10 +26,27 @@ class AddressesView(APIView):
     # 获取customer的地址
     # http://127.0.0.1:8000/shop/api/v1/customers/addresses
     def get(self, request):
-        result = requests.get(url=address_url, headers=headers)
+        addresses = cache.get('addresses')
+        if addresses is not None:
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'addresses': addresses
+                }
+            })
 
+        result = requests.get(url=address_url, headers=headers)
+        address_list = result.json()['data']
         if result.status_code == 200:
-            return Response(result.json())
+            cache.set('addresses', address_list, timeout=60 * 10)
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'addresses': address_list
+                }
+            })
         else:
             return Response(result.json(), status=result.status_code)
 
@@ -102,4 +121,36 @@ class AddressesView(APIView):
             return Response({
                 'code': 404,
                 'msg': "address_id invalid"
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AddressDetailsView(APIView):
+
+    # 获取单个地址详细信息
+    def get(self, request):
+        address_id = request.GET.get('id')
+        address = cache.get(f'address:{address_id}')
+
+        if address is not None:
+            address_data = FullAddressesSerializer(address).data
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': address_data
+            })
+
+        address = Addresses.objects.filter(address_id=address_id).first()
+        if address:
+            cache.set(f'address:{address.address_id}', address)
+            address_data = FullAddressesSerializer(address).data
+
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': address_data
+            })
+        else:
+            return Response({
+                'code': 400,
+                'msg': 'Invalid id'
             }, status=status.HTTP_400_BAD_REQUEST)
