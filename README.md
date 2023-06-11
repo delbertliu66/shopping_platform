@@ -6,6 +6,18 @@ api doc:  https://developer.bigcommerce.com/docs/rest-management/customers-v2
 
 postman：https://api.postman.com/collections/21830621-d9c5ebe2-8c6b-4de1-8e12-d92daffc7c6c?access_key=PMAT-01H1XV0PRJY3NPZNHMNCC4ZBPN
 
+# 注册流程图
+
+![bc注册](E:\Study\答辩\bc注册.png)
+
+# 登录流程图
+
+![bc登录](E:\Study\答辩\bc登录.png)
+
+# 数据库设计ER图
+
+![ER图](E:\Study\答辩\ER图.png)
+
 # User Module
 
 创建一个新用户需要以下参数（列表优化成对象）
@@ -87,135 +99,6 @@ postman：https://api.postman.com/collections/21830621-d9c5ebe2-8c6b-4de1-8e12-d
 
 
 
-## Customer api 接口及数据
-
-### 用户登录下发token
-
-```
-POST: http://127.0.0.1:8000/shop/api/v1/login/
-数据：
-{
-    "email": "albertliu@163.com",
-    "password": "albertliu123"
-}
-```
-
-
-
-### 新增用户
-
-```
-POST: http://127.0.0.1:8000/shop/api/v1/customers
-数据:
-[
-  {
-    "email": "string@test88.com",
-    "first_name": "hahaha",
-    "last_name": "xxx",
-    "company": "string",
-    "phone": "string",
-    "authentication": {
-      "new_password": "string666"
-    }
-  }
-]
-```
-
-
-
-### 查询所有用户
-
-```
-GET: http://127.0.0.1:8000/shop/api/v1/customers
-```
-
-
-
-### 更新用户信息
-
-```
-PUT: http://127.0.0.1:8000/shop/api/v1/customers/
-查询参数: id: 1
-数据：
-[
-  {
-    "id": 62,
-    "first_name": "string212",
-    "last_name": "string212",
-    "authentication": {
-        "new_password": "string12122"
-    }
-  }
-]
-```
-
-
-
-### 删除用户信息
-
-```
-DELETE: http://127.0.0.1:8000/shop/api/v1/customers/
-查询参数： ids: 4,5,6
-```
-
-
-
-## Address api接口及数据
-
-### 查询所有地址信息
-
-```
-GET: http://127.0.0.1:8000/shop/api/v1/customers/addresses
-```
-
-
-
-### 新增用户地址信息
-
-```
-POST: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
-数据：
-{
-    "address1": "四川省绵阳市",
-    "address2": "哈哈哈",
-    "address_type": "residential",
-    "city": "四川",
-    "company": "四川省绵阳市/Delbert",
-    "country": "China",
-    "country_code": "CN",
-    "customer_id": 74,
-    "first_name": "Delbert",
-    "last_name": "Liu",
-    "phone": "123434",
-    "postal_code": "4675345",
-    "state_or_province": "四川"
-}
-```
-
-
-
-### 更新地址信息
-
-```
-PUT: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
-数据：
-{
-    "id": 24,
-    "postal_code": "66667777"
-}
-```
-
-
-
-### 删除用户地址信息
-
-```
-DELETE: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
-查询参数： ids: 4,5,6
-```
-
-
-
 # Product Module
 
 商品分类表用于存储商品分类信息（商品需要有商品分类，才能在bc店铺显示）
@@ -270,53 +153,7 @@ DELETE: http://127.0.0.1:8000/shop/api/v1/customers/addresses/
 
 
 
-## Product api接口及数据
-
-### 获取所有商品分类
-
-```
-GET: http://127.0.0.1:8000/shop/api/v1/categories/
-```
-
-
-
-### 新增商品分类
-
-```
-POST: http://127.0.0.1:8000/shop/api/v1/categories/
-数据：
-{
-    "name": "test4",
-    "parent_id": 0
-}
-```
-
-
-
-### 更新商品种类
-
-```
-PUT: http://127.0.0.1:8000/shop/api/v1/categories/
-查询参数： id: 2
-数据：
-{
-    "name": "test444",
-    "parent_id": 0
-}
-```
-
-
-
-### 删除商品种类
-
-```
-DELETE: http://127.0.0.1:8000/shop/api/v1/categories/
-查询参数： id: 2
-```
-
-
-
-## Cart Module
+# Cart Module
 
 每一个用户拥有一个购物车，需要一张购物车表，购物车与消费者是一对一关系，购物车表需要有一个customer_id与customer外键关联
 
@@ -328,7 +165,7 @@ DELETE: http://127.0.0.1:8000/shop/api/v1/categories/
 
 
 
-## Order Module
+# Order Module
 
 创建一个订单需要如下内容
 
@@ -390,7 +227,7 @@ orderItem表是order得具体细节
 
 首先，将下单数据保存到bc店铺
 
-### order status
+## order status
 
 | Status ID | Name                         | Description                                                  |
 | --------- | ---------------------------- | ------------------------------------------------------------ |

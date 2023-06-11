@@ -40,19 +40,30 @@ class CustomersView(APIView):
     # 获取消费者列表（从bc官方获取）
     def get(self, requset):
 
-        # 从bc官方获取消费者数据
-        result = requests.get(customer_url, headers=headers)
-        customers = result.json()['data']
-        # 返回固定格式
-        return Response({
-            'code': 200,
-            'msg': 'success',
-            'data': {
-                'customers': customers
-            }
-        })
+        customers = cache.get('customers')
+        if customers is not None:
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'customers': customers
+                }
+            })
+        else:
+            # 从bc官方获取消费者数据
+            result = requests.get(customer_url, headers=headers)
+            customers = result.json()['data']
+            cache.set('customers', customers, timeout=60 * 3)
+            # 返回固定格式
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'customers': customers
+                }
+            })
 
-    # 新增消费者（首先要保存到自己的数据库中，然后上传到bc官方数据库）
+    # 新增消费者（首先要上传到bc官方数据库保存到自己的数据库中，然后保存到自己的数据库中）
     def post(self, requset):
         # 获取request作用域中的值（引用）
         customer_data = requset.data
@@ -114,7 +125,7 @@ class CustomersView(APIView):
         else:
             return Response(result.json(), status=result.status_code)
 
-    # 删除消费者，需要在路径参数中携带需要删除的id（bc店铺存储的id），查询参数为id:in=4,5,6
+    # 删除消费者，需要在请求体中携带需要删除的id（bc店铺存储的id）
     def delete(self, request):
         # 从参数中将bc_id列表提取出来
         bc_ids = request.data['ids']
@@ -147,12 +158,20 @@ class CustomerDetailView(APIView):
     # 获取一个用户的详细信息
     def get(self, request):
         customer_id = request.GET.get('customer_id')
-        customer_query = Customers.objects.prefetch_related('address').get(bc_id=customer_id)
 
-        if customer_query:
-            customer = customer_query
+        customer = cache.get(customer_id)
+
+        if customer is None:
+            customer = Customers.objects.prefetch_related('address').get(bc_id=customer_id)
+        else:
+            return Response({
+                'code': 200,
+                'data': customer
+            })
+
+        if customer:
             customer_data = CustomerSerializer(customer).data
-
+            cache.set(customer_id, customer_data, timeout=60 * 3)
             return Response({
                 'code': 200,
                 'data': customer_data
