@@ -238,3 +238,5 @@ CACHES = {
         }
     }
 }
+# 缓存默认过期时间 1h
+CACHE_DEFAULT_TIMEOUT = 3600

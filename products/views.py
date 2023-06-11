@@ -1,11 +1,13 @@
 import json
 
+from django.core.cache import cache
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 import requests
 from rest_framework.response import Response
 from .models import Categories,Products
 from rest_framework import status
+from .serializers import ProductSerializers, CategorySerializers
 
 
 cate_url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v3/catalog/categories'
@@ -22,9 +24,28 @@ class ProductsView(APIView):
 
     # 获取所有产品列表
     def get(self, request):
+        products = cache.get('products')
+        if products is not None:
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'products': products
+                }
+            })
 
         result = requests.get(url=prod_url, headers=headers)
-        return Response(result.json(), status=result.status_code)
+        if result.status_code == 200:
+            cache.set('products', result.json()['data'])
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'products': result.json()['data']
+                }
+            })
+        else:
+            return Response(result.json(), status=result.status_code)
 
     # 新增一个产品
     def post(self, request):
@@ -114,7 +135,26 @@ class CategoriesView(APIView):
 
     # 获取所有商品分类
     def get(self, request):
+        categories = cache.get('categories')
+        if categories is not None:
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'categories': categories
+                }
+            })
+
         result = requests.get(cate_url, headers=headers)
+        if result.status_code == 200:
+            cache.set('categories', result.json().get('data'))
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'categories': result.json().get('data')
+                }
+            })
         return Response(result.json(), status=result.status_code)
 
     # 新增商品分类
@@ -210,3 +250,33 @@ class CategoriesView(APIView):
             }, status=result.status_code)
         else:
             return Response(result.json(), status=result.status_code)
+
+
+class ProductDetailsView(APIView):
+
+    # 获取单个产品详情
+    def get(self, request):
+        prod_id = request.GET.get('id')
+        product = cache.get(f'product:{prod_id}')
+        if product:
+            product_data = ProductSerializers(product).data
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': product_data
+            })
+
+        product = Products.objects.filter(bc_pro_id=prod_id).first()
+        if product:
+            product_data = ProductSerializers(product).data
+            cache.set(f'product:{product.bc_pro_id}', product, timeout=60 * 10)
+            return Response({
+                'code': 200,
+                'msg': 'success',
+                'data': product_data
+            })
+        else:
+            return Response({
+                'code': 400,
+                'msg': 'Invalid id!'
+            }, status=status.HTTP_400_BAD_REQUEST)
