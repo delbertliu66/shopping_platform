@@ -13,9 +13,6 @@ class CustomerSerializer(serializers.ModelSerializer):
 
     def get_address(self, obj):
         addresses_query = obj.address.all()
-        # addresses = []
-        # for address in addresses_query:
-        #     addresses.append(address)
         address_data = PartialAddressesSerializer(addresses_query, many=True).data
         return address_data
 
