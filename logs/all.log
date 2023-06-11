@@ -1,0 +1,1186 @@
+[96m2023-06-11 13:26:48 [MainThread:10392] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:26:48 [MainThread:10392] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:26:58 [Thread-1 (process_request_thread):15800] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:27:17 [Thread-2 (process_request_thread):13792] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:27:19 [Thread-1 (process_request_thread):15800] [django.server:81]             [INFO]- - Broken pipe from ('127.0.0.1', 64855)[0m
+[96m2023-06-11 13:27:26 [Thread-3 (process_request_thread):11628] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:27:35 [MainThread:9144] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:27:35 [MainThread:9144] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:27:37 [Thread-1 (process_request_thread):15380] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:27:55 [MainThread:12384] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:27:55 [MainThread:12384] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:28:00 [Thread-1 (process_request_thread):11776] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[31m2023-06-11 13:28:21 [Thread-1 (process_request_thread):11776] [django.server:212]             [ERROR]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 500 140233[0m
+[96m2023-06-11 13:31:44 [MainThread:16628] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:31:44 [MainThread:16628] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:31:47 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:31:47 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[96m2023-06-11 13:31:47 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('77'); args=('77',); alias=default[0m
+[35m2023-06-11 13:31:47 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[96m2023-06-11 13:32:03 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:32:03 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[96m2023-06-11 13:32:54 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:32:54 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 13:32:54 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('84'); args=('84',); alias=default[0m
+[35m2023-06-11 13:32:54 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[96m2023-06-11 13:33:02 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:33:02 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[96m2023-06-11 13:33:06 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:33:06 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[96m2023-06-11 13:34:22 [Thread-1 (process_request_thread):13620] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:34:22 [Thread-1 (process_request_thread):13620] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[96m2023-06-11 13:37:45 [MainThread:15600] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:37:45 [MainThread:15600] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:37:56 [Thread-1 (process_request_thread):12476] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:37:58 [Thread-1 (process_request_thread):12476] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[96m2023-06-11 13:38:18 [Thread-1 (process_request_thread):12476] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:38:18 [Thread-1 (process_request_thread):12476] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[96m2023-06-11 13:38:59 [Thread-1 (process_request_thread):12476] [django.db.backends:131]             [DEBUG]- (0.015) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:38:59 [Thread-1 (process_request_thread):12476] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[96m2023-06-11 13:47:35 [MainThread:15888] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:47:35 [MainThread:15888] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:47:41 [MainThread:17012] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:47:41 [MainThread:17012] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:47:48 [Thread-1 (process_request_thread):4148] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE ("customers"."email" = 'albertliu@163.com' AND "customers"."new_password" = 'albertliu123') ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com', 'albertliu123'); alias=default[0m
+[35m2023-06-11 13:47:48 [Thread-1 (process_request_thread):4148] [django.server:212]             [INFO]- "POST /shop/api/v1/login HTTP/1.1" 200 202[0m
+[96m2023-06-11 13:48:20 [Thread-1 (process_request_thread):4148] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[35m2023-06-11 13:48:22 [Thread-1 (process_request_thread):4148] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[35m2023-06-11 13:48:24 [Thread-1 (process_request_thread):4148] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[96m2023-06-11 13:53:10 [MainThread:2136] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:53:10 [MainThread:2136] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 13:53:18 [Thread-1 (process_request_thread):3788] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[96m2023-06-11 13:53:18 [Thread-1 (process_request_thread):3788] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 13:53:18 [Thread-1 (process_request_thread):3788] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('84'); args=('84',); alias=default[0m
+[35m2023-06-11 13:53:18 [Thread-1 (process_request_thread):3788] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[35m2023-06-11 13:53:22 [Thread-1 (process_request_thread):3788] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[35m2023-06-11 13:53:35 [Thread-1 (process_request_thread):3788] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[96m2023-06-11 13:54:04 [Thread-1 (process_request_thread):3788] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[96m2023-06-11 13:54:04 [Thread-1 (process_request_thread):3788] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('77'); args=('77',); alias=default[0m
+[35m2023-06-11 13:54:04 [Thread-1 (process_request_thread):3788] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[35m2023-06-11 13:54:18 [Thread-1 (process_request_thread):3788] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[96m2023-06-11 13:58:54 [MainThread:7124] [django.db.backends:131]             [DEBUG]- (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 13:58:54 [MainThread:7124] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 13:59:02 [Thread-1 (process_request_thread):4660] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2382[0m
+[96m2023-06-11 14:02:20 [MainThread:7892] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:02:20 [MainThread:7892] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:02:29 [MainThread:2136] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:02:29 [MainThread:2136] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 14:02:34 [Thread-1 (process_request_thread):6832] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2332[0m
+[96m2023-06-11 14:03:51 [MainThread:16060] [django.db.backends:131]             [DEBUG]- (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:03:51 [MainThread:16060] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:03:56 [MainThread:1700] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:03:56 [MainThread:1700] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 14:04:06 [Thread-1 (process_request_thread):16888] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2332[0m
+[35m2023-06-11 14:04:35 [Thread-1 (process_request_thread):16888] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2332[0m
+[35m2023-06-11 14:04:42 [Thread-1 (process_request_thread):16888] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2332[0m
+[96m2023-06-11 14:07:34 [MainThread:188] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:07:34 [MainThread:188] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:08:04 [Thread-1 (process_request_thread):16380] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[96m2023-06-11 14:08:04 [Thread-1 (process_request_thread):16380] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('77'); args=('77',); alias=default[0m
+[35m2023-06-11 14:08:04 [Thread-1 (process_request_thread):16380] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[35m2023-06-11 14:08:17 [Thread-1 (process_request_thread):16380] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[35m2023-06-11 14:08:42 [Thread-1 (process_request_thread):16380] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/addresses HTTP/1.1" 200 2332[0m
+[35m2023-06-11 14:09:17 [Thread-1 (process_request_thread):16380] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[35m2023-06-11 14:09:19 [Thread-1 (process_request_thread):16380] [django.server:212]             [INFO]- "GET /shop/api/v1/customers HTTP/1.1" 200 21156[0m
+[96m2023-06-11 14:16:37 [MainThread:16372] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:16:37 [MainThread:16372] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:17:35 [MainThread:14868] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:17:35 [MainThread:14868] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:18:18 [Thread-1 (process_request_thread):12832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id"::text IS NULL LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 14:18:18 [Thread-1 (process_request_thread):12832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 14:18:18 [Thread-1 (process_request_thread):12832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('0', '75', '77', '84'); args=('0', '75', '77', '84'); alias=default[0m
+[31m2023-06-11 14:18:18 [Thread-1 (process_request_thread):12832] [django.server:212]             [ERROR]- "GET /shop/api/v1/customer/details?id=2 HTTP/1.1" 500 102168[0m
+[96m2023-06-11 14:18:41 [Thread-1 (process_request_thread):12832] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customers' [name='customers']>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'login'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customer/details'>], [<URLResolver <module 'addresses.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\addresses\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customers/addresses'>], [<URLResolver <module 'addresses.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\addresses\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customer/details'>], [<URLResolver <module 'products.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\products\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'products'>], [<URLResolver <module 'products.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\products\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'categories'>], [<URLResolver <module 'carts.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\carts\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'carts'>], [<URLResolver <module 'carts.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\carts\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'carts/<int:cart_id>/items'>], [<URLResolver <module 'orders.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\orders\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'orders'>]], 'path': 'shop/api/v1/address/details'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+[33m2023-06-11 14:18:41 [Thread-1 (process_request_thread):12832] [django.server:212]             [WARNING]- "GET /shop/api/v1/address/details?id=2 HTTP/1.1" 404 3907[0m
+[96m2023-06-11 14:19:04 [MainThread:12112] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:19:04 [MainThread:12112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:19:18 [Thread-1 (process_request_thread):9636] [django.template:930]             [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.[0m
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 313, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\urls\resolvers.py", line 702, in resolve
+    raise Resolver404({"tried": tried, "path": new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customers' [name='customers']>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'login'>], [<URLResolver <module 'customers.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\customers\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customer/details'>], [<URLResolver <module 'addresses.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\addresses\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customers/addresses'>], [<URLResolver <module 'addresses.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\addresses\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'customer/address/details'>], [<URLResolver <module 'products.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\products\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'products'>], [<URLResolver <module 'products.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\products\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'categories'>], [<URLResolver <module 'carts.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\carts\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'carts'>], [<URLResolver <module 'carts.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\carts\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'carts/<int:cart_id>/items'>], [<URLResolver <module 'orders.urls' from 'E:\\WorkSpace\\PythonWorkSpace\\shopping_platform\\orders\\urls.py'> (None:None) 'shop/api/v1/'>, <URLPattern 'orders'>]], 'path': 'shop/api/v1/customers/address/details'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+[33m2023-06-11 14:19:18 [Thread-1 (process_request_thread):9636] [django.server:212]             [WARNING]- "GET /shop/api/v1/customers/address/details?id=2 HTTP/1.1" 404 3945[0m
+[96m2023-06-11 14:19:28 [MainThread:12152] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:19:28 [MainThread:12152] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:19:32 [Thread-1 (process_request_thread):1880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 2; args=(2,); alias=default[0m
+[33m2023-06-11 14:19:32 [Thread-1 (process_request_thread):1880] [django.server:212]             [WARNING]- "GET /shop/api/v1/customers/address/details?id=2 HTTP/1.1" 400 31[0m
+[96m2023-06-11 14:20:22 [Thread-1 (process_request_thread):1880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 38; args=(38,); alias=default[0m
+[31m2023-06-11 14:20:22 [Thread-1 (process_request_thread):1880] [django.server:212]             [ERROR]- "GET /shop/api/v1/customers/address/details?id=38 HTTP/1.1" 500 98000[0m
+[96m2023-06-11 14:20:52 [MainThread:11868] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:20:52 [MainThread:11868] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:20:55 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 38 ORDER BY "addresses_addresses"."id" ASC LIMIT 1; args=(38,); alias=default[0m
+[96m2023-06-11 14:20:55 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[35m2023-06-11 14:20:55 [Thread-1 (process_request_thread):3912] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=38 HTTP/1.1" 200 334[0m
+[96m2023-06-11 14:21:10 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 40 ORDER BY "addresses_addresses"."id" ASC LIMIT 1; args=(40,); alias=default[0m
+[96m2023-06-11 14:21:10 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[35m2023-06-11 14:21:10 [Thread-1 (process_request_thread):3912] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=40 HTTP/1.1" 200 334[0m
+[96m2023-06-11 14:21:12 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[35m2023-06-11 14:21:12 [Thread-1 (process_request_thread):3912] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=40 HTTP/1.1" 200 334[0m
+[96m2023-06-11 14:21:15 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[35m2023-06-11 14:21:15 [Thread-1 (process_request_thread):3912] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=40 HTTP/1.1" 200 334[0m
+[96m2023-06-11 14:21:25 [Thread-1 (process_request_thread):3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[35m2023-06-11 14:21:25 [Thread-1 (process_request_thread):3912] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=38 HTTP/1.1" 200 334[0m
+[96m2023-06-11 14:27:40 [MainThread:15740] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:27:40 [MainThread:15740] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:27:49 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[96m2023-06-11 14:27:49 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('77'); args=('77',); alias=default[0m
+[35m2023-06-11 14:27:49 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[35m2023-06-11 14:27:51 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=77 HTTP/1.1" 200 412[0m
+[96m2023-06-11 14:28:06 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 14:28:06 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" IN ('84'); args=('84',); alias=default[0m
+[35m2023-06-11 14:28:06 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[35m2023-06-11 14:28:08 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customer/details?customer_id=84 HTTP/1.1" 200 712[0m
+[96m2023-06-11 14:28:17 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 38 ORDER BY "addresses_addresses"."id" ASC LIMIT 1; args=(38,); alias=default[0m
+[96m2023-06-11 14:28:17 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[35m2023-06-11 14:28:17 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=38 HTTP/1.1" 200 418[0m
+[96m2023-06-11 14:28:18 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '77' LIMIT 21; args=('77',); alias=default[0m
+[35m2023-06-11 14:28:18 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=38 HTTP/1.1" 200 418[0m
+[96m2023-06-11 14:28:31 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 40 ORDER BY "addresses_addresses"."id" ASC LIMIT 1; args=(40,); alias=default[0m
+[96m2023-06-11 14:28:31 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.015) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[35m2023-06-11 14:28:31 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=40 HTTP/1.1" 200 418[0m
+[96m2023-06-11 14:29:05 [Thread-1 (process_request_thread):5880] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[35m2023-06-11 14:29:05 [Thread-1 (process_request_thread):5880] [django.server:212]             [INFO]- "GET /shop/api/v1/customers/address/details?id=40 HTTP/1.1" 200 418[0m
+[96m2023-06-11 14:56:33 [MainThread:10124] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:56:33 [MainThread:10124] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "carts"."id", "carts"."create_at", "carts"."update_at", "carts"."total_quantity", "carts"."total_price", "carts"."customer_id" FROM "carts" WHERE "carts"."id" = 5 ORDER BY "carts"."id" ASC LIMIT 1; args=(5,); alias=default[0m
+[96m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" = '84'; args=('84',); alias=default[0m
+[96m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 14:57:29 [Thread-1 (process_request_thread):9448] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 1015[0m
+[96m2023-06-11 14:57:44 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 14:57:44 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" = '84'; args=('84',); alias=default[0m
+[96m2023-06-11 14:57:44 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 14:57:44 [Thread-1 (process_request_thread):9448] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 14:57:44 [Thread-1 (process_request_thread):9448] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 1015[0m
+[96m2023-06-11 14:59:03 [MainThread:15636] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:59:03 [MainThread:15636] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[31m2023-06-11 14:59:07 [Thread-1 (process_request_thread):11808] [django.server:212]             [ERROR]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 500 105416[0m
+[96m2023-06-11 14:59:32 [MainThread:14156] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 14:59:32 [MainThread:14156] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[31m2023-06-11 14:59:34 [Thread-1 (process_request_thread):14580] [django.server:212]             [ERROR]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 500 105416[0m
+[96m2023-06-11 15:00:55 [MainThread:10476] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:00:55 [MainThread:10476] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[31m2023-06-11 15:00:58 [Thread-1 (process_request_thread):7936] [django.server:212]             [ERROR]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 500 105416[0m
+[96m2023-06-11 15:01:26 [MainThread:10648] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:01:26 [MainThread:10648] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[31m2023-06-11 15:01:28 [Thread-1 (process_request_thread):14328] [django.server:212]             [ERROR]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 500 102141[0m
+[96m2023-06-11 15:02:06 [MainThread:17080] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:02:06 [MainThread:17080] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:02:11 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 15:02:11 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" = '84'; args=('84',); alias=default[0m
+[96m2023-06-11 15:02:11 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:02:11 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:02:11 [Thread-1 (process_request_thread):16844] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 1015[0m
+[96m2023-06-11 15:02:14 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 15:02:14 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" = '84'; args=('84',); alias=default[0m
+[96m2023-06-11 15:02:14 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:02:14 [Thread-1 (process_request_thread):16844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:02:14 [Thread-1 (process_request_thread):16844] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 1015[0m
+[96m2023-06-11 15:05:01 [MainThread:15920] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:05:01 [MainThread:15920] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:05:15 [Thread-1 (process_request_thread):17044] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 141[0m
+[35m2023-06-11 15:05:25 [Thread-1 (process_request_thread):17044] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 141[0m
+[96m2023-06-11 15:06:29 [MainThread:16252] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:06:29 [MainThread:16252] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:06:41 [Thread-1 (process_request_thread):14156] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 141[0m
+[35m2023-06-11 15:06:58 [Thread-1 (process_request_thread):14156] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 141[0m
+[96m2023-06-11 15:07:34 [MainThread:16052] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:07:34 [MainThread:16052] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "carts"."id", "carts"."create_at", "carts"."update_at", "carts"."total_quantity", "carts"."total_price", "carts"."customer_id" FROM "carts" WHERE "carts"."id" = 5 ORDER BY "carts"."id" ASC LIMIT 1; args=(5,); alias=default[0m
+[96m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."customer_id" = '84'; args=('84',); alias=default[0m
+[96m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:07:42 [Thread-1 (process_request_thread):10264] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 1015[0m
+[96m2023-06-11 15:08:02 [MainThread:17392] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:08:02 [MainThread:17392] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:08:10 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "carts"."id", "carts"."create_at", "carts"."update_at", "carts"."total_quantity", "carts"."total_price", "carts"."customer_id" FROM "carts" WHERE "carts"."id" = 5 ORDER BY "carts"."id" ASC LIMIT 1; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:10 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 15:08:10 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:10 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:08:10 [Thread-1 (process_request_thread):17112] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 405[0m
+[96m2023-06-11 15:08:36 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:36 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.015) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:08:36 [Thread-1 (process_request_thread):17112] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 405[0m
+[96m2023-06-11 15:08:37 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:37 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:08:37 [Thread-1 (process_request_thread):17112] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 405[0m
+[96m2023-06-11 15:08:38 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:38 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:08:38 [Thread-1 (process_request_thread):17112] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 405[0m
+[96m2023-06-11 15:08:39 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "cart_items"."id", "cart_items"."create_at", "cart_items"."update_at", "cart_items"."cart_id", "cart_items"."product_id", "cart_items"."quantity", "cart_items"."price" FROM "cart_items" WHERE "cart_items"."cart_id" = 5; args=(5,); alias=default[0m
+[96m2023-06-11 15:08:39 [Thread-1 (process_request_thread):17112] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[35m2023-06-11 15:08:39 [Thread-1 (process_request_thread):17112] [django.server:212]             [INFO]- "GET /shop/api/v1/carts?id=5 HTTP/1.1" 200 405[0m
+[96m2023-06-11 15:12:09 [MainThread:4740] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:12:09 [MainThread:4740] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:12:14 [MainThread:14284] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:12:14 [MainThread:14284] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:12:24 [Thread-1 (process_request_thread):11968] [django.server:212]             [INFO]- "GET /shop/api/v1/products HTTP/1.1" 200 40414[0m
+[96m2023-06-11 15:16:54 [MainThread:3912] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:16:54 [MainThread:3912] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:17:00 [Thread-1 (process_request_thread):15468] [django.server:212]             [INFO]- "GET /shop/api/v1/products HTTP/1.1" 200 40305[0m
+[35m2023-06-11 15:17:33 [Thread-1 (process_request_thread):15468] [django.server:212]             [INFO]- "GET /shop/api/v1/products HTTP/1.1" 200 40305[0m
+[96m2023-06-11 15:19:24 [MainThread:16232] [django.db.backends:131]             [DEBUG]- (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:19:24 [MainThread:16232] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:19:34 [Thread-1 (process_request_thread):15968] [django.server:212]             [INFO]- "GET /shop/api/v1/categories HTTP/1.1" 200 2802[0m
+[96m2023-06-11 15:22:21 [MainThread:14468] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:22:21 [MainThread:14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[35m2023-06-11 15:22:26 [Thread-1 (process_request_thread):5784] [django.server:212]             [INFO]- "GET /shop/api/v1/categories HTTP/1.1" 200 2714[0m
+[35m2023-06-11 15:22:27 [Thread-1 (process_request_thread):5784] [django.server:212]             [INFO]- "GET /shop/api/v1/categories HTTP/1.1" 200 2714[0m
+[96m2023-06-11 15:31:07 [MainThread:11468] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:31:07 [MainThread:11468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT 1 AS "a" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 1; args=(1, 139); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[31m2023-06-11 15:31:53 [Thread-1 (process_request_thread):316] [django.server:212]             [ERROR]- "GET /shop/api/v1/product/details?id=139 HTTP/1.1" 500 138021[0m
+[96m2023-06-11 15:32:26 [MainThread:7200] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:32:26 [MainThread:7200] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT 1 AS "a" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 1; args=(1, 139); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.015) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[31m2023-06-11 15:32:29 [Thread-1 (process_request_thread):10588] [django.server:212]             [ERROR]- "GET /shop/api/v1/product/details?id=139 HTTP/1.1" 500 126355[0m
+[96m2023-06-11 15:33:12 [MainThread:4064] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:33:12 [MainThread:4064] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:33:14 [Thread-1 (process_request_thread):3552] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 ORDER BY "products_products"."id" ASC LIMIT 1; args=(139,); alias=default[0m
+[96m2023-06-11 15:33:14 [Thread-1 (process_request_thread):3552] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_categories"."id", "products_categories"."create_at", "products_categories"."update_at", "products_categories"."name", "products_categories"."parent_id", "products_categories"."bc_cate_id" FROM "products_categories" WHERE "products_categories"."bc_cate_id" = 35 LIMIT 21; args=(35,); alias=default[0m
+[35m2023-06-11 15:33:14 [Thread-1 (process_request_thread):3552] [django.server:212]             [INFO]- "GET /shop/api/v1/product/details?id=139 HTTP/1.1" 200 129[0m
+[96m2023-06-11 15:35:45 [MainThread:13276] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 15:35:45 [MainThread:13276] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 15:35:50 [Thread-1 (process_request_thread):15660] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 ORDER BY "products_products"."id" ASC LIMIT 1; args=(139,); alias=default[0m
+[96m2023-06-11 15:35:50 [Thread-1 (process_request_thread):15660] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_categories"."id", "products_categories"."create_at", "products_categories"."update_at", "products_categories"."name", "products_categories"."parent_id", "products_categories"."bc_cate_id" FROM "products_categories" WHERE "products_categories"."bc_cate_id" = 35 LIMIT 21; args=(35,); alias=default[0m
+[35m2023-06-11 15:35:50 [Thread-1 (process_request_thread):15660] [django.server:212]             [INFO]- "GET /shop/api/v1/product/details?id=139 HTTP/1.1" 200 156[0m
+[35m2023-06-11 15:35:52 [Thread-1 (process_request_thread):15660] [django.server:212]             [INFO]- "GET /shop/api/v1/product/details?id=139 HTTP/1.1" 200 156[0m
+[35m2023-06-11 15:39:26 [Thread-1 (process_request_thread):15660] [django.server:212]             [INFO]- "GET /shop/api/v1/orders HTTP/1.1" 200 122740[0m
+[96m2023-06-11 16:08:57 [MainThread:17148] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:08:57 [MainThread:17148] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:09:44 [Thread-1 (process_request_thread):16744] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."email" = 'albertliu@163.com' ORDER BY "customers"."id" ASC LIMIT 1; args=('albertliu@163.com',); alias=default[0m
+[31m2023-06-11 16:09:44 [Thread-1 (process_request_thread):16744] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 97180[0m
+[96m2023-06-11 16:10:11 [MainThread:14272] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:10:11 [MainThread:14272] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:10:13 [Thread-1 (process_request_thread):15844] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[31m2023-06-11 16:10:13 [Thread-1 (process_request_thread):15844] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 139809[0m
+[96m2023-06-11 16:10:59 [MainThread:13472] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:10:59 [MainThread:13472] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:11:00 [Thread-1 (process_request_thread):15468] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[31m2023-06-11 16:11:01 [Thread-1 (process_request_thread):15468] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 139357[0m
+[96m2023-06-11 16:14:15 [MainThread:696] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:14:15 [MainThread:696] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.015) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[31m2023-06-11 16:14:17 [Thread-1 (process_request_thread):17132] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 158981[0m
+[96m2023-06-11 16:15:44 [MainThread:14592] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:15:45 [MainThread:14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[31m2023-06-11 16:15:47 [Thread-1 (process_request_thread):14468] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 159017[0m
+[96m2023-06-11 16:15:53 [MainThread:17280] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:15:53 [MainThread:17280] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[96m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" LIMIT 21; args=(); alias=default[0m
+[31m2023-06-11 16:15:56 [Thread-1 (process_request_thread):3832] [django.server:212]             [ERROR]- "GET /shop/api/v1/orders/141 HTTP/1.1" 500 159017[0m
+[96m2023-06-11 16:18:35 [MainThread:7688] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:18:35 [MainThread:7688] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 142 LIMIT 21; args=(142,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 142 LIMIT 21; args=(142,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 142 LIMIT 21; args=(142,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:37 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 144 LIMIT 21; args=(144,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 144 LIMIT 21; args=(144,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 144 LIMIT 21; args=(144,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:18:38 [Thread-1 (process_request_thread):804] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 779[0m
+[96m2023-06-11 16:19:01 [MainThread:13568] [django.db.backends:131]             [DEBUG]- (0.015) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:19:01 [MainThread:13568] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:19:04 [Thread-1 (process_request_thread):14592] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 671[0m
+[96m2023-06-11 16:21:59 [MainThread:16480] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:21:59 [MainThread:16480] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.016) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:22:05 [Thread-1 (process_request_thread):14580] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 698[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:22:08 [Thread-1 (process_request_thread):14580] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 698[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:22:10 [Thread-1 (process_request_thread):14580] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 698[0m
+[96m2023-06-11 16:27:21 [MainThread:15752] [django.db.backends:131]             [DEBUG]- (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default[0m
+[96m2023-06-11 16:27:21 [MainThread:15752] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default[0m
+[96m2023-06-11 16:28:11 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT 1 AS "a" FROM "orders" WHERE "orders"."bc_order_id" = 141 LIMIT 1; args=(1, 141); alias=default[0m
+[96m2023-06-11 16:28:12 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:28:12 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.016) UPDATE "orders" SET "create_at" = '2023-06-07T08:05:12.549760+00:00'::timestamptz, "update_at" = '2023-06-11T08:28:12.919305+00:00'::timestamptz, "bc_order_id" = 141, "customer_id" = '84', "status" = 10, "total_price" = 188.87, "total_quantity" = 10, "address_id" = 39 WHERE "orders"."id" = 6; args=(datetime.datetime(2023, 6, 7, 8, 5, 12, 549760, tzinfo=datetime.timezone.utc), datetime.datetime(2023, 6, 11, 8, 28, 12, 919305, tzinfo=datetime.timezone.utc), 141, '84', 10, Decimal('188.87'), 10, 39, 6); alias=default[0m
+[35m2023-06-11 16:28:12 [Thread-1 (process_request_thread):11884] [django.server:212]             [INFO]- "PUT /shop/api/v1/orders/141 HTTP/1.1" 200 35[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "orders"."id", "orders"."create_at", "orders"."update_at", "orders"."bc_order_id", "orders"."customer_id", "orders"."status", "orders"."total_price", "orders"."total_quantity", "orders"."address_id" FROM "orders" WHERE "orders"."bc_order_id" = 141 ORDER BY "orders"."id" ASC LIMIT 1; args=(141,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items" WHERE "order_items"."order_id" IN (141); args=(141,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "order_items"."id", "order_items"."create_at", "order_items"."update_at", "order_items"."order_id", "order_items"."product_id", "order_items"."quantity", "order_items"."total_price" FROM "order_items"; args=(); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 139 LIMIT 21; args=(139,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 140 LIMIT 21; args=(140,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "products_products"."id", "products_products"."create_at", "products_products"."update_at", "products_products"."name", "products_products"."type", "products_products"."weight", "products_products"."price", "products_products"."sku", "products_products"."bc_pro_id", "products_products"."category_id" FROM "products_products" WHERE "products_products"."bc_pro_id" = 141 LIMIT 21; args=(141,); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "customers"."id", "customers"."create_at", "customers"."update_at", "customers"."first_name", "customers"."last_name", "customers"."email", "customers"."company", "customers"."phone", "customers"."new_password", "customers"."bc_id" FROM "customers" WHERE "customers"."bc_id" = '84' LIMIT 21; args=('84',); alias=default[0m
+[96m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.db.backends:131]             [DEBUG]- (0.000) SELECT "addresses_addresses"."id", "addresses_addresses"."create_at", "addresses_addresses"."update_at", "addresses_addresses"."address_id", "addresses_addresses"."address1", "addresses_addresses"."address2", "addresses_addresses"."address_type", "addresses_addresses"."city", "addresses_addresses"."company", "addresses_addresses"."country", "addresses_addresses"."country_code", "addresses_addresses"."first_name", "addresses_addresses"."last_name", "addresses_addresses"."phone", "addresses_addresses"."postal_code", "addresses_addresses"."state_or_province", "addresses_addresses"."customer_id" FROM "addresses_addresses" WHERE "addresses_addresses"."address_id" = 39 LIMIT 21; args=(39,); alias=default[0m
+[35m2023-06-11 16:28:15 [Thread-1 (process_request_thread):11884] [django.server:212]             [INFO]- "GET /shop/api/v1/orders/141 HTTP/1.1" 200 699[0m

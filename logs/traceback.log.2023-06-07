@@ -1,0 +1,627 @@
+07/Jun/2023 10:49:42 [Thread-1 (process_request_thread):7484] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\views.py", line 60, in post
+    result = requests.post(customer_url, data=json.dumps([customer_data]), headers=headers)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+07/Jun/2023 10:49:52 [Thread-1 (process_request_thread):7484] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\views.py", line 60, in post
+    result = requests.post(customer_url, data=json.dumps([customer_data]), headers=headers)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+07/Jun/2023 11:42:03 [Thread-5 (process_request_thread):20520] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/addresses
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\addresses\views.py", line 125, in delete
+    ids_list = [int(id_) for id_ in ids_data.split(',')]
+AttributeError: 'NoneType' object has no attribute 'split'
+07/Jun/2023 11:42:33 [Thread-5 (process_request_thread):14780] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/addresses
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\addresses\views.py", line 125, in delete
+    ids_list = [int(id_) for id_ in ids_data.split(',')]
+AttributeError: 'NoneType' object has no attribute 'split'
+07/Jun/2023 13:38:11 [Thread-1 (process_request_thread):22556] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\views.py", line 60, in post
+    result = requests.post(customer_url, data=json.dumps([customer_data]), headers=headers)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+07/Jun/2023 13:44:10 [Thread-1 (process_request_thread):23812] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/addresses
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\addresses\views.py", line 91, in delete
+    result = requests.delete(url, headers=headers)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 157, in delete
+    return request("delete", url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+07/Jun/2023 13:49:48 [Thread-1 (process_request_thread):23812] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customers/addresses
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.bigcommerce.com', port=443): Max retries exceeded with url: /stores/rmz2xgu42d/v3/customers/addresses?id:in=36,11 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\addresses\views.py", line 91, in delete
+    result = requests.delete(url, headers=headers)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 157, in delete
+    return request("delete", url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.bigcommerce.com', port=443): Max retries exceeded with url: /stores/rmz2xgu42d/v3/customers/addresses?id:in=36,11 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)')))
+07/Jun/2023 14:33:20 [Thread-1 (process_request_thread):16504] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/products
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 776, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connectionpool.py", line 1041, in _prepare_proxy
+    conn.connect()
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 635, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\connection.py", line 774, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 459, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\urllib3\util\ssl_.py", line 503, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "E:\software\Python\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "E:\software\Python\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "E:\software\Python\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\products\views.py", line 45, in post
+    result = requests.post(url=prod_url, headers=headers, data=json.dumps(request.data))
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+07/Jun/2023 14:39:33 [Thread-1 (process_request_thread):22632] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/products
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\products\views.py", line 34, in post
+    category = get_object_or_404(Categories, bc_cate_id=request.data['categories'][0])
+KeyError: 'categories'
+07/Jun/2023 15:50:37 [Thread-2 (process_request_thread):5412] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/orders
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\orders\views.py", line 78, in post
+    address_id = add_address_result.content['data'][0].get('id')
+TypeError: byte indices must be integers or slices, not str
+07/Jun/2023 16:05:05 [Thread-1 (process_request_thread):22164] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/orders
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\orders\views.py", line 78, in post
+    address_id = add_address_result.content['data'][0].get('id')
+TypeError: byte indices must be integers or slices, not str
+07/Jun/2023 16:07:12 [Thread-1 (process_request_thread):22164] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/orders
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\orders\views.py", line 78, in post
+    address_id = add_address_result.content['data'][0].get('id')
+TypeError: byte indices must be integers or slices, not str
+07/Jun/2023 16:13:20 [Thread-1 (process_request_thread):21268] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/orders
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\request.py", line 416, in __getattr__
+    return getattr(self._request, attr)
+AttributeError: 'WSGIRequest' object has no attribute 'dat'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\orders\views.py", line 109, in delete
+    bc_order_id = request.dat['id']
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\request.py", line 418, in __getattr__
+    return self.__getattribute__(attr)
+AttributeError: 'Request' object has no attribute 'dat'

@@ -1,0 +1,95 @@
+09/Jun/2023 15:52:26 [Thread-1 (process_request_thread):24116] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customer/details
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\views.py", line 153, in get
+    customer_data = CustomerSerializer.data(customer)
+TypeError: 'property' object is not callable
+09/Jun/2023 16:39:54 [Thread-1 (process_request_thread):10988] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customer/details
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\views.py", line 153, in get
+    customer_data = CustomerSerializer(customer).data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\fields.py", line 1838, in to_representation
+    return method(value)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\customers\serializers.py", line 19, in get_address
+    address_data = AddressesSerializer(addresses_query, many=True).data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 507, in to_representation
+    for field in fields:
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\serializers.py", line 1175, in get_field_names
+    assert field_name in fields, (
+AssertionError: The field 'customer_id' was included on serializer AddressesSerializer in the 'exclude' option, but does not match any model field.
+09/Jun/2023 17:39:21 [Thread-1 (process_request_thread):18368] [django.request:241] [ERROR]- Internal Server Error: /shop/api/v1/customer/details
+Traceback (most recent call last):
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "E:\WorkSpace\PythonWorkSpace\shopping_platform\venv\lib\site-packages\django\middleware\cache.py", line 153, in process_request
+    if request.method not in ("GET", "HEAD"):
+AttributeError: 'CustomerDetailView' object has no attribute 'method'
