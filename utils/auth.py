@@ -27,7 +27,7 @@ class JwtAuth(BaseAuthentication):
 
         # 根据邮箱查询是否存在用户
         customer = Customers.objects.filter(email=email).first()
-        cache.set(f'customer:{customer.email}', customer, timeout=60 * 3)
+        cache.set(f'customer:{customer.email}', customer, timeout=60 * 60 * 2)
 
         if not customer:
             raise AuthenticationFailed('Invalid Token')

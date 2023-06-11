@@ -53,7 +53,7 @@ class CustomersView(APIView):
             # 从bc官方获取消费者数据
             result = requests.get(customer_url, headers=headers)
             customers = result.json()['data']
-            cache.set('customers', customers, timeout=60 * 3)
+            cache.set('customers', customers, timeout=60 * 10)
             # 返回固定格式
             return Response({
                 'code': 200,
@@ -159,7 +159,7 @@ class CustomerDetailView(APIView):
     def get(self, request):
         customer_id = request.GET.get('customer_id')
 
-        customer = cache.get(customer_id)
+        customer = cache.get(f'customer:{customer_id}')
 
         if customer is None:
             customer = Customers.objects.prefetch_related('address').get(bc_id=customer_id)
@@ -171,7 +171,7 @@ class CustomerDetailView(APIView):
 
         if customer:
             customer_data = CustomerSerializer(customer).data
-            cache.set(customer_id, customer_data, timeout=60 * 3)
+            cache.set(f'customer:{customer.bc_id}', customer_data, timeout=60 * 10)
             return Response({
                 'code': 200,
                 'data': customer_data

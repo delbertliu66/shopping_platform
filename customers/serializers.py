@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Customers
-from addresses.serializers import AddressesSerializer
+from addresses.serializers import PartialAddressesSerializer
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -16,5 +16,5 @@ class CustomerSerializer(serializers.ModelSerializer):
         # addresses = []
         # for address in addresses_query:
         #     addresses.append(address)
-        address_data = AddressesSerializer(addresses_query, many=True).data
+        address_data = PartialAddressesSerializer(addresses_query, many=True).data
         return address_data
