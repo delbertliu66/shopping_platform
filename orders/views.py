@@ -155,4 +155,26 @@ class OrderDetailsView(APIView):
 
     # 更新订单信息（更新订单状态)
     def put(self, request, order_id):
-        pass
+        url = order_url + '/' + str(order_id)
+        status_id = request.data.get('status_id')
+        order_query = Orders.objects.filter(bc_order_id=order_id)
+
+        if not order_query.exists():
+            return Response({
+                'code': 400,
+                'msg': 'Invalid order id'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        result = requests.put(url=url, headers=headers, data=json.dumps(request.data))
+
+        if result.status_code == 200:
+            order = order_query.first()
+            order.status = status_id
+            order.save()
+
+            return Response({
+                'code': 200,
+                'msg': 'Update success'
+            })
+        else:
+            return Response(result.json(), status=result.status_code)
