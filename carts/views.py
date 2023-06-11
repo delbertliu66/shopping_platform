@@ -1,5 +1,6 @@
 import json
 
+from django.core.cache import cache
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.views import APIView
@@ -15,15 +16,23 @@ class CartsView(APIView):
     # 查看购物车信息
     def get(self, request):
         cart_id = request.query_params.get('id')
-        cart = Carts.objects.filter(id=cart_id).first()
 
+        cart = cache.get(f'cart:{cart_id}')
+        if cart is not None:
+            cart_data = CartSerializer(cart).data
+            return Response({
+                'code': '200',
+                'data': cart_data
+            })
+
+        cart = Carts.objects.filter(id=cart_id).first()
         if not cart:
             return Response({
                 'code': '404',
                 'msg': 'Cart not found'
             })
-
         cart_data = CartSerializer(cart).data
+        cache.set(f'cart:{cart.id}', cart, timeout=60 * 10)
         return Response({
             'code': '200',
             'data': cart_data
@@ -56,10 +65,6 @@ class CartsView(APIView):
             'msg': 'Cart created successfully',
             'data': serial_cart
         })
-
-    # 更新购物车信息（添加商品，删除商品，更改商品数量等）
-    def put(self, request):
-        pass
 
 
 class CartItemsView(APIView):
